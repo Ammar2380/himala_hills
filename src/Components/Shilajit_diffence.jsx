@@ -1,7 +1,7 @@
 import React from "react";
 import Labbg1 from './LABbg 2.png'
 import Labbg2 from './LABbg.png'
-import Labbg3 from './LABbg2.png'
+import Labbg3 from './LAbbg2.png'
 const ShilajitDifference = () => {
   return (
     <section className="bg-[#FFF9EE] py-20 px-4">
