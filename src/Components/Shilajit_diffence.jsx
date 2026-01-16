@@ -57,7 +57,7 @@ const ShilajitDifference = () => {
               </div>
             </div>
 
-            {/* BOTTOM RIGHT CARD - Experts */}
+            
             <div className="relative group  overflow-hidden rounded-3xl shadow-lg flex-1">
               <img 
                 src={Labbg3}
