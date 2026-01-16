@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-[700px] md:min-h-[500px] scroll-m-50 flex justify-center items-center text-white overflow-hidden"
+      className="relative min-h-[700px] md:min-h-[500px]  scroll-m-50 flex justify-center items-center text-white overflow-hidden"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundSize: "cover",
@@ -33,7 +33,7 @@ const Hero = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative w-full max-w-7xl px-6 py-12 md:py-0 flex flex-col md:flex-row justify-between items-center"
+        className="relative w-full max-w-7xl px-6 py-12 md:py-0 flex flex-col md:flex-row justify-between items-center md:top-0 top-10"
       >
         {/* Left Content */}
         <div className="max-w-xl z-10 text-center md:text-left">
@@ -99,7 +99,7 @@ const Hero = () => {
           
             src={heroimg}
             alt="Himalayan Shilajit"
-            className="relative w-[100%] md:w-[900px] md:top-36 top-16 md:left-6 h-auto z-10 object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            className="relative w-[100%] md:w-[900px] md:top-36 top-10 md:left-6 h-auto z-10 object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
           />
         </motion.div>
       </motion.div>
