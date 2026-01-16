@@ -123,17 +123,7 @@ const MobileBenefits = () => {
         </motion.div>
       </div>
 
-      {/* REFINED TRUST BAR */}
-      <div className="mt-16 w-[85%]">
-        <div className="bg-white/40 backdrop-blur-xl rounded-[32px] p-8 border border-white/60 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.05)] flex flex-col items-center">
-          <p className="text-[9px] font-black text-gray-400 tracking-[0.4em] uppercase mb-6">Certified Pure Origin</p>
-          <div className="flex justify-between w-full px-4">
-            <img src={grp1} alt="" className="h-10 opacity-70 hover:opacity-100 transition-opacity" />
-            <div className="w-[1px] h-10 bg-[#c5a059]/20" />
-            <img src={grp2} alt="" className="h-10 opacity-70 hover:opacity-100 transition-opacity" />
-          </div>
-        </div>
-      </div>
+      
     </section>
   );
 };
