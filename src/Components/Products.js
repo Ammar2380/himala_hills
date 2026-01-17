@@ -23,9 +23,7 @@ export const PRODUCTS = [
     rating: 4.8,
     reviewsCount: 1240,
     variants: [
-      { size: "15 Grams", price: 29.99, oldPrice: 39.99, stock: 15 },
-      { size: "30 Grams", price: 49.99, oldPrice: 59.99, stock: 5 },
-      { size: "50 Grams", price: 74.99, oldPrice: 89.99, stock: 0 },
+      { size: "Single Pack", price: 20.00, oldPrice: 29.99, stock: 15 },
     ],
     features: [
       "Elite Gold Grade Resin",
@@ -49,8 +47,7 @@ export const PRODUCTS = [
     rating: 4.9,
     reviewsCount: 850,
     variants: [
-      { size: "30 ML", price: 29.99, oldPrice: 49.99, stock: 42 },
-      { size: "60 ML", price: 54.99, oldPrice: 79.99, stock: 12 },
+      { size: "Single Pack", price: 20.00, oldPrice: 29.99, stock: 42 },
     ],
     features: [
       "Male Vitality Formula",
@@ -70,13 +67,11 @@ export const PRODUCTS = [
       "A balanced daily-use Himalayan Shilajit resin sun-dried at high altitudes in Gilgit–Baltistan. Ideal for adults aged 25–40 to maintain natural energy, focus, and stamina.",
     longDescription:
       "Rich in Fulvic and Humic minerals, antioxidants, and trace elements, Shilajit Regular supports daily vitality, mental clarity, immunity, and nutrient absorption—without caffeine or stimulants.",
-   images: [Product1a, Product1b, Product1c],
+    images: [Product1a, Product1b, Product1c],
     rating: 4.7,
     reviewsCount: 560,
     variants: [
-      { size: "20 Grams", price: 34.99, oldPrice: 44.99, stock: 25 },
-      { size: "40 Grams", price: 59.99, oldPrice: 74.99, stock: 10 },
-      { size: "60 Grams", price: 79.99, oldPrice: 99.99, stock: 0 },
+      { size: "Single Pack", price: 20.00, oldPrice: 29.99, stock: 25 },
     ],
     features: [
       "Daily Vitality Support",

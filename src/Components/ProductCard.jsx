@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import Rating from "./Rating";
 
 // Your specific PNG imports
-import Product1 from "./Frame 7.png";
-import Product2 from "./Frame 8.png";
-import Product3 from "./Frame 9.png";
+import Product1 from "./Frame 6.jpg";
+import Product2 from "./Frame 8.jpg";
+import Product3 from "./Frame 7.jpg";
 
 const formatPrice = (amt) =>
   new Intl.NumberFormat("en-GB", {
@@ -70,9 +70,9 @@ const ProductCard = ({ product, onSelect }) => {
             ⚡ Flash Sale
           </span>
         </div>
-        <div className="border border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-bold mb-4">
+        {/* <div className="border border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-bold mb-4">
           {mainVariant.size} — {formatPrice(mainVariant.price)}
-        </div>
+        </div> */}
         <button
           onClick={handleSelect}
           className="w-full bg-green-500 text-white py-3 rounded-full font-black text-sm hover:bg-green-600 transition shadow-lg"

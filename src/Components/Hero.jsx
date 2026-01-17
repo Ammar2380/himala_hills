@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import heroBg from "./image 2.png";
+import { Link } from 'react-scroll'; // npm install react-scroll
+
 import heroimg from './Frame 22.png';
 
 const Hero = () => {
@@ -67,18 +69,25 @@ const Hero = () => {
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-8 md:mt-5">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ 
-                boxShadow: ["0px 0px 0px rgba(255,201,54,0)", "0px 0px 20px rgba(255,201,54,0.4)", "0px 0px 0px rgba(255,201,54,0)"] 
-              }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="cursor-pointer bg-gradient-to-r from-[#FFC936] to-[#997920] text-black px-10 py-3 md:px-7 md:py-2 rounded-full font-extrabold text-sm uppercase tracking-wider shadow-xl"
-            >
-              Try Gold Shilajit
-            </motion.button>
-          </motion.div>
+  <Link to="product" smooth={true} duration={800}>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      animate={{
+        boxShadow: [
+          "0px 0px 0px rgba(255,201,54,0)",
+          "0px 0px 20px rgba(255,201,54,0.4)",
+          "0px 0px 0px rgba(255,201,54,0)"
+        ]
+      }}
+      transition={{ repeat: Infinity, duration: 2 }}
+      className="cursor-pointer bg-gradient-to-r from-[#FFC936] to-[#997920] text-black px-10 py-3 md:px-7 md:py-2 rounded-full font-extrabold text-sm uppercase tracking-wider shadow-xl"
+    >
+      Try Gold Shilajit
+    </motion.button>
+  </Link>
+</motion.div>
+
         </div>
 
         {/* Right Image - Enhanced for Mobile, Preserved for Desktop */}
