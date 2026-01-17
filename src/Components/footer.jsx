@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1a3d3d] text-white overflow-hidden" id='contact'>
       
-      {/* --- MOBILE & TABLET VIEW (Mind-Blowing Interactive Command Center) --- */}
+      {/* --- MOBILE & TABLET VIEW --- */}
       <div className="lg:hidden">
         
         {/* Cinematic Brand Header */}
@@ -34,7 +34,7 @@ export default function Footer() {
           <p className="text-[#c5a059] text-xs font-bold uppercase tracking-[0.3em] mt-2 italic opacity-80">The Essence of Purity</p>
         </div>
 
-        {/* Trust Slider (Horizontal Auto-scroll feel) */}
+        {/* Trust Slider */}
         <div className="flex overflow-x-auto snap-x no-scrollbar px-6 gap-4 py-8 border-y border-white/5 bg-[#142e2e]">
           {[
             { icon: ShieldCheck, title: "Lab Certified", desc: "Purity Guaranteed" },
@@ -54,8 +54,26 @@ export default function Footer() {
         {/* Interactive Accordion Sections */}
         <div className="px-6 py-10 space-y-4">
           {[
-            { id: 'explore', title: 'Explore', content: ['Shop All Products', 'Wholesale Inquiries', 'Our Story', 'Lab Certificates'] },
-            { id: 'support', title: 'Support', content: ['Contact Us', 'Shipping Policy', 'Returns & FAQ', 'Terms of Service'] }
+            { 
+              id: 'explore', 
+              title: 'Explore', 
+              content: [
+                { label: 'Shop All Products', link: '#product' }, 
+                { label: 'Wholesale Inquiries', link: '#wholesale' }, 
+            
+                { label: 'Lab Certificates', link: '#Certificates' }
+              ] 
+            },
+            { 
+              id: 'support', 
+              title: 'Support', 
+              content: [
+                { label: 'Contact Us', link: '#contact' }, 
+                { label: 'Shipping Policy', link: '#' }, 
+                { label: 'Returns & FAQ', link: '#' }, 
+                { label: 'Terms of Service', link: '#' }
+              ] 
+            }
           ].map((section) => (
             <div key={section.id} className="border-b border-white/10 pb-4">
               <button 
@@ -74,8 +92,10 @@ export default function Footer() {
                     className="overflow-hidden"
                   >
                     <div className="flex flex-col gap-4 py-4">
-                      {section.content.map(link => (
-                        <a key={link} href="#" className="text-gray-400 text-sm font-bold hover:text-white">{link}</a>
+                      {section.content.map(item => (
+                        <a key={item.label} href={item.link} className="text-gray-400 text-sm font-bold hover:text-white">
+                          {item.label}
+                        </a>
                       ))}
                     </div>
                   </motion.div>
@@ -85,42 +105,64 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Newsletter: The "Card" Experience */}
-        <div className="mx-6 p-8 rounded-[2.5rem] bg-[#c5a059] text-[#1a3d3d] mb-12 relative overflow-hidden">
-          <div className="relative z-10">
-            <h3 className="text-2xl font-black uppercase leading-none mb-2">Stay <br/> Himalayan</h3>
-            <p className="text-[10px] font-bold uppercase tracking-widest mb-6 opacity-80">Wellness delivered to your inbox.</p>
-            <div className="relative">
-              <input 
-                type="email" 
-                placeholder="EMAIL ADDRESS" 
-                className="w-full bg-[#1a3d3d]/10 border-b-2 border-[#1a3d3d] py-3 text-sm placeholder:text-[#1a3d3d]/50 outline-none font-bold"
-              />
-              <button className="absolute right-0 bottom-3">
-                <Send size={20} />
-              </button>
-            </div>
-          </div>
-          {/* Decorative Circle */}
-          <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/20 rounded-full blur-3xl" />
-        </div>
+        {/* Newsletter */}
+       <div className="mx-6 p-8 rounded-[2.5rem] bg-[#c5a059] text-[#1a3d3d] mb-12 relative overflow-hidden">
+  <div className="relative z-10">
+    <h3 className="text-2xl font-black uppercase leading-none mb-2">
+      Connect <br /> On WhatsApp
+    </h3>
+    <p className="text-[10px] font-bold uppercase tracking-widest mb-6 opacity-80">
+      Instant support & wellness tips.
+    </p>
+    
+    <div className="relative">
+      <a 
+       href="https://wa.me/923333058456"
+// Replace with your actual number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-between w-full bg-[#1a3d3d] text-[#c5a059] px-6 py-4 rounded-2xl font-black text-xs tracking-widest hover:scale-[1.02] transition-transform"
+      >
+        CHAT WITH US
+        <Send size={18} className="rotate-45" />
+      </a>
+    </div>
+  </div>
+  
+  {/* Decorative Circle */}
+  <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/20 rounded-full blur-3xl" />
+</div>
 
         {/* Bottom Socials & Disclaimer */}
         <div className="bg-[#142e2e] py-12 px-6 text-center">
-          <div className="flex justify-center gap-6 mb-8">
-            <Instagram size={20} className="text-gray-400" />
-            <Facebook size={20} className="text-gray-400" />
-            <Youtube size={20} className="text-gray-400" />
-          </div>
-          <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mb-6">© {new Date().getFullYear()} Himala Hills</p>
-          <div className="flex flex-wrap justify-center gap-4 opacity-30 grayscale mb-6">
-            <img src={MasterCard} className="h-4" alt="" />
-            <img src={PayPal} className="h-4" alt="" />
-            <img src={Amex} className="h-4" alt="" />
-          </div>
-          <p className="text-[9px] text-gray-700 leading-tight">
-             *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
-          </p>
+          <div className="bg-[#142e2e] py-12 px-6 text-center">
+  <div className="flex justify-center gap-6 mb-8">
+    <a href="https://www.instagram.com/HimalaHills/" target="_blank" rel="noopener noreferrer">
+      <Instagram size={20} className="text-gray-400" />
+    </a>
+    <a href="https://www.facebook.com/HimalaHills" target="_blank" rel="noopener noreferrer">
+      <Facebook size={20} className="text-gray-400" />
+    </a>
+    <a href="https://www.youtube.com/@HimalaHillsShilajit" target="_blank" rel="noopener noreferrer">
+      <Youtube size={20} className="text-gray-400" />
+    </a>
+    <a href="https://www.linkedin.com/company/himalahills/" target="_blank" rel="noopener noreferrer">
+      <Mail size={20} className="text-gray-400" /> {/* Using Mail icon for LinkedIn, or you can import LinkedIn icon */}
+    </a>
+  </div>
+  <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em] font-bold mb-6">© {new Date().getFullYear()} Himala Hills</p>
+  <div className="flex flex-wrap justify-center gap-4 opacity-30 grayscale mb-6">
+    <img src={MasterCard} className="h-4" alt="" />
+    <img src={PayPal} className="h-4" alt="" />
+    <img src={Amex} className="h-4" alt="" />
+  </div>
+  <p className="text-[9px] text-gray-700 leading-tight">
+    *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+  </p>
+</div>
+
+          
+         
         </div>
       </div>
 
@@ -162,21 +204,32 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed">
               Sourcing the highest quality Shilajit resin directly from the heart of the Himalayas. We bridge ancient wisdom with modern wellness.
             </p>
-            <div className="flex gap-4 justify-center md:justify-start">
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300"><Facebook size={18} /></a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300"><Twitter size={18} /></a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300"><Instagram size={18} /></a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300"><Youtube size={18} /></a>
-            </div>
+           {/* Desktop Socials - unchanged layout, only add links */}
+<div className="flex gap-4 justify-center md:justify-start">
+  <a href="https://www.facebook.com/HimalaHills" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300">
+    <Facebook size={18} />
+  </a>
+  <a href="https://www.twitter.com/HimalaHills" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300">
+    <Twitter size={18} />
+  </a>
+  <a href="https://www.instagram.com/HimalaHills/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300">
+    <Instagram size={18} />
+  </a>
+  <a href="https://www.youtube.com/@HimalaHillsShilajit" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300">
+    <Youtube size={18} />
+  </a>
+  <a href="https://www.linkedin.com/company/himalahills/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] transition-all duration-300">
+    <Mail size={18} /> {/* Again, placeholder for LinkedIn icon */}
+  </a>
+</div>
           </div>
 
           <div className="space-y-6">
             <h3 className="text-lg font-bold uppercase tracking-widest text-[#c5a059]">Explore</h3>
             <nav className="flex flex-col gap-3">
-              <a href="#" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Shop All Products</a>
-              <a href="#" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Wholesale Inquiries</a>
-              <a href="#" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Our Story</a>
-              <a href="#" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Lab Certificates</a>
+              <a href="#product" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Shop All Products</a>
+              <a href="#wholesale" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Wholesale Inquiries</a>
+              <a href="#Certificates" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all">Lab Certificates</a>
             </nav>
           </div>
 
@@ -189,7 +242,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-[#c5a059]" />
-                <span className="text-sm">+1 (800) SHILAJIT</span>
+                <span className="text-sm">+923333058456</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-[#c5a059] mt-1" />
@@ -200,21 +253,16 @@ export default function Footer() {
 
           <div className="space-y-6 bg-white/5 p-6 rounded-2xl border border-white/10">
             <h3 className="text-lg font-bold uppercase tracking-widest text-[#c5a059]">Stay Updated</h3>
-            <p className="text-xs text-gray-400">Subscribe for exclusive offers and Himalayan wellness tips.</p>
+            <p className="text-xs text-gray-400">Get exclusive offers and Himalayan wellness tips via WhatsApp.</p>
             <div className="relative w-full">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#c5a059] transition-colors"
-              />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#c5a059] text-[#1a3d3d] font-bold rounded-md px-3 py-1 text-sm hover:bg-white transition-colors">
-                JOIN
-              </button>
+              <a href="https://wa.me/923333058456" target="_blank" rel="noopener noreferrer" className="w-full block text-center bg-[#25D366] text-white font-bold rounded-lg px-4 py-3 text-sm hover:bg-[#1ebe57] transition-colors">
+                Message Us on WhatsApp
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <p className="text-xs text-gray-500 uppercase tracking-widest">
               © {new Date().getFullYear()} Himala Hills. All Rights Reserved.

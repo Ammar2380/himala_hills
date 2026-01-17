@@ -50,10 +50,7 @@ const ShilajitDifference = () => {
                 <p className="text-gray-200 text-sm mb-4 leading-relaxed">
                   Every batch undergoes three-stage purification and independent testing. We're the only brand conducting long-term stability testing.
                 </p>
-                <a href="#" className="text-[#FFC936]   font-bold text-base flex items-center gap-2 hover:underline">
-                  See lab results 
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </a>
+             
               </div>
             </div>
 

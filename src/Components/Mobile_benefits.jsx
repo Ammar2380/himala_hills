@@ -41,7 +41,7 @@ const MobileBenefits = () => {
   return (
     <section 
       ref={containerRef} 
-      className="bg-[#FFF9EE] py-24 overflow-hidden lg:hidden flex flex-col items-center"
+      className="bg-[#FFF9EE]  overflow-hidden lg:hidden flex flex-col items-center"
     >
       {/* HEADER: Sharp & Editorial */}
       <div className="text-center z-20 mb-20 px-6">

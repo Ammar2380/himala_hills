@@ -15,6 +15,12 @@ const formatPrice = (amt) =>
 const ProductCard = ({ product, onSelect }) => {
   const mainVariant = product.variants?.[0] || { price: 0, oldPrice: 0, size: 'N/A' };
 
+  const handleSelect = (e) => {
+    e.stopPropagation();
+    const rect = e.currentTarget.getBoundingClientRect();
+    onSelect(product, rect.top);
+  };
+
   const getProductImage = (id) => {
     switch (id) {
       case 1: return Product3;
@@ -30,7 +36,7 @@ const ProductCard = ({ product, onSelect }) => {
     <>
       {/* --- DESKTOP VERSION (UNTOUCHED) --- */}
       <div
-        onClick={() => onSelect(product)}
+        onClick={handleSelect}
         className="hidden md:block cursor-pointer bg-[#f9efd9] rounded-[2rem] p-4 transition-transform hover:-translate-y-1"
       >
         <div className="relative bg-white rounded-[1.75rem] overflow-hidden mb-4">
@@ -68,7 +74,7 @@ const ProductCard = ({ product, onSelect }) => {
           {mainVariant.size} — {formatPrice(mainVariant.price)}
         </div>
         <button
-          onClick={(e) => { e.stopPropagation(); onSelect(product); }}
+          onClick={handleSelect}
           className="w-full bg-green-500 text-white py-3 rounded-full font-black text-sm hover:bg-green-600 transition shadow-lg"
         >
           ADD TO CART
@@ -80,7 +86,7 @@ const ProductCard = ({ product, onSelect }) => {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        onClick={() => onSelect(product)}
+        onClick={handleSelect}
         className="md:hidden relative flex flex-col bg-white rounded-[2.5rem] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden"
       >
         {/* Glowing Discount Tag */}
@@ -97,7 +103,6 @@ const ProductCard = ({ product, onSelect }) => {
         {/* Product Image Stage */}
         <div className="relative bg-[#F8F8F8] rounded-[2rem]  overflow-hidden flex items-center justify-center group ">
           <motion.img
-          
             src={getProductImage(product.id)}
             alt={product.name}
             className="w-[100%] h-auto z-10 drop-shadow-2xl"
@@ -134,7 +139,7 @@ const ProductCard = ({ product, onSelect }) => {
           {/* Haptic-Style Action Button */}
           <motion.button
             whileTap={{ scale: 0.92 }}
-            onClick={(e) => { e.stopPropagation(); onSelect(product); }}
+            onClick={handleSelect}
             className="w-full relative overflow-hidden bg-gray-900 text-white h-14 rounded-2xl font-black text-sm tracking-widest flex items-center justify-center shadow-xl group"
           >
             <span className="relative z-10">ADD TO CART — {formatPrice(mainVariant.price)}</span>

@@ -6,9 +6,9 @@ import Product2a from './products (6).jpg';
 import Product2b from './products (9).jpg';
 import Product2c from './products (5).jpg';
 
-import Product3a from './products (7).jpg';
-import Product3b from './products (8).jpg';
-import Product3c from './products (3).jpg';
+import Product3a from './products (8).jpg';
+import Product3b from './products (3).jpg';
+import Product3c from './products (7).jpg';
 
 export const PRODUCTS = [
   {

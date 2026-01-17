@@ -27,8 +27,8 @@ const App = () => {
     <ReviewsMarquee/>
     <HowToUse/>
     <Benefits/>
-    <ShilajitResin/>
     <Minerals/>
+    <ShilajitResin/>
     <WhyChoose/>
     <Certifications/>
     <Wholesale/>

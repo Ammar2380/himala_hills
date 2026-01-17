@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import img1 from './imggg (1).jpg'
+import img2 from './imggg (2).jpg'
+import img3 from './imggg (3).jpg'
+import img4 from './imggg (4).jpg'
 
+const images = [img1, img2, img3, img4];
 const reviews = [
   {
     name: "Juraime",
@@ -79,7 +84,7 @@ const ReviewsMarquee = () => {
 
   return (
     <section className="bg-[#FFF9EE] py-12 lg:py-24 overflow-hidden">
-      {/* Header Section */}
+    
       <div className="max-w-6xl mx-auto px-6 mb-10 lg:mb-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -92,9 +97,15 @@ const ReviewsMarquee = () => {
           </h2>
           <div className="flex items-center lg:justify-center gap-3">
             <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#FFF9EE] bg-gray-400" />
-              ))}
+              
+{images.map((img, i) => (
+  <img
+    key={i}
+    src={img}
+    className="w-8 h-8 rounded-full border-2 border-[#FFF9EE] bg-gray-400"
+    alt={`Avatar ${i + 1}`}
+  />
+))}
             </div>
             <p className="text-sm md:text-lg text-gray-600 font-medium">
               Join 10,000+ happy customers

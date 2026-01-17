@@ -38,9 +38,9 @@ const ShilajitResin = () => {
             <motion.h3 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-6xl font-black text-[#1a3d3d] leading-[0.8] mb-8"
+              className="text-5xl font-black tracking-tighter text-[#1a3d3d] leading-[0.8] mb-8"
             >
-              What <br/> <span className="text-[#c5a059]">is it?</span>
+              What <span className="text-[#c5a059]">is it?</span>
             </motion.h3>
 
             <div className="relative pl-6 py-2">

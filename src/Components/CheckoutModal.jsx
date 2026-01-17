@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { X, CheckCircle2, ChevronRight } from "lucide-react";
 import { formatPrice } from "./formatPrice";
 
-const OWNER_WHATSAPP = "923220838604"; // owner number
+const OWNER_WHATSAPP = "923333058456"; // owner number
 
 const CheckoutModal = ({ total, cart, onClose, onSuccess }) => {
   const [step, setStep] = useState(1);
@@ -28,8 +28,7 @@ const CheckoutModal = ({ total, cart, onClose, onSuccess }) => {
       )
       .join("%0A");
 
-    return `
-🛒 *NEW ORDER RECEIVED*
+    return `🛒 *NEW ORDER RECEIVED*
 
 👤 *Customer Details*
 Name: ${form.name}
@@ -39,8 +38,7 @@ Address: ${form.address}
 🧾 *Order Items*
 ${items}
 
-💰 *Total: ${formatPrice(total)}*
-    `.trim();
+💰 *Total: ${formatPrice(total)}*`.trim();
   };
 
   const handleOrder = () => {
@@ -77,7 +75,17 @@ ${items}
       <motion.div
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
-        className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden shadow-2xl relative"
+        className="
+          bg-white rounded-[2rem] overflow-hidden shadow-2xl relative
+          w-full max-w-md
+          sm:max-w-md
+          md:max-w-md
+          lg:max-w-md
+          h-auto
+          sm:h-auto
+          md:h-auto
+          lg:h-auto
+        "
       >
         <button
           onClick={onClose}
@@ -87,35 +95,35 @@ ${items}
         </button>
 
         {step === 1 ? (
-          <div className="p-6 sm:p-8">
-            <h2 className="text-2xl font-black mb-2 tracking-tighter">
+          <div className="p-4 sm:p-6 md:p-8">
+            <h2 className="text-xl sm:text-2xl font-black mb-2 tracking-tighter text-center sm:text-left">
               DELIVERY INFO
             </h2>
-            <p className="text-gray-400 mb-6 font-medium">
+            <p className="text-gray-400 mb-4 sm:mb-6 font-medium text-center sm:text-left">
               Confirm details to send order via WhatsApp.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <input
                 name="name"
                 placeholder="Full Name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full bg-gray-50 p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium"
+                className="w-full bg-gray-50 p-3 sm:p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium text-sm sm:text-base"
               />
               <input
                 name="phone"
                 placeholder="WhatsApp Number"
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full bg-gray-50 p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium"
+                className="w-full bg-gray-50 p-3 sm:p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium text-sm sm:text-base"
               />
               <textarea
                 name="address"
                 placeholder="Delivery Address"
                 value={form.address}
                 onChange={handleChange}
-                className="w-full bg-gray-50 p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium h-24"
+                className="w-full bg-gray-50 p-3 sm:p-4 rounded-xl focus:ring-2 ring-[#c5a059] font-medium h-20 sm:h-24 text-sm sm:text-base"
               />
             </div>
 
@@ -123,34 +131,34 @@ ${items}
               <span className="font-bold text-gray-400 uppercase tracking-widest text-xs">
                 Total
               </span>
-              <span className="text-2xl font-black">{formatPrice(total)}</span>
+              <span className="text-lg sm:text-2xl font-black">{formatPrice(total)}</span>
             </div>
 
             <button
               onClick={handleOrder}
               disabled={loading}
-              className="w-full bg-[#1a3d3d] text-white py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2 hover:bg-black transition-all"
+              className="w-full bg-[#1a3d3d] text-white py-3 sm:py-4 rounded-xl font-black text-sm sm:text-lg flex items-center justify-center gap-2 hover:bg-black transition-all"
             >
               {loading ? "SENDING..." : "CONFIRM & SEND"}
-              <ChevronRight size={18} />
+              <ChevronRight size={16} className="sm:!w-4 sm:!h-4" />
             </button>
           </div>
         ) : (
-          <div className="p-10 text-center">
+          <div className="p-6 sm:p-10 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", damping: 10 }}
             >
               <CheckCircle2
-                size={80}
-                className="mx-auto text-green-500 mb-6"
+                size={60} sm={80}
+                className="mx-auto text-green-500 mb-4 sm:mb-6"
               />
             </motion.div>
-            <h2 className="text-3xl font-black mb-2 tracking-tighter">
+            <h2 className="text-xl sm:text-3xl font-black mb-2 tracking-tighter">
               ORDER SENT
             </h2>
-            <p className="text-gray-500 font-medium">
+            <p className="text-gray-500 font-medium text-sm sm:text-base">
               Opening WhatsApp for owner confirmation…
             </p>
           </div>
