@@ -109,14 +109,7 @@ const Navbar = () => {
 
         {/* Fixed Bottom Grid sizing */}
         <div className="grid grid-cols-2 gap-4 mt-8 w-full">
-          <div className="bg-white/5 p-5 border border-white/10 flex flex-col justify-between h-24">
-            <Instagram size={20} className="text-[#FFC936]" />
-            <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Follow Us</p>
-          </div>
-          <div className="bg-white/5 p-5 border border-white/10 flex flex-col justify-between h-24">
-            <Globe size={20} className="text-[#FFC936]" />
-            <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Global Hub</p>
-          </div>
+         
         </div>
         
       </div>

@@ -15,9 +15,7 @@ const ProductPage = ({ product, onBack, addToCart }) => {
   // 2. FIXED: Update current image when variant changes
   const handleVariantSelect = (variant) => {
     setSelectedVariant(variant);
-    // If your variants have specific image indexes, set it here
-    // e.g., if variant 'Red' is always image index 1:
-    // setCurrentImage(variant.imageIndex); 
+
   };
 const [checkoutOpen, setCheckoutOpen] = useState(false);
 
@@ -48,7 +46,7 @@ const handleAddToCart = () => {
         transition={{ type: "spring", damping: 30, stiffness: 250 }}
         className="w-full h-[98vh] md:h-[90vh] md:max-w-5xl bg-[#fafafa] rounded-t-[2.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
       >
-        {/* --- SMALLER MOBILE BUTTONS --- */}
+      
         <div className="absolute top-0 left-0 right-0 z-[120] flex items-center justify-between p-4 pointer-events-none">
           <button 
             onClick={onBack} 

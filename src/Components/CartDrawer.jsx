@@ -15,7 +15,6 @@ const CartDrawer = ({ isOpen, cart, onClose, removeFromCart, onCheckout }) => (
           className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100]"
         />
 
-        {/* Drawer */}
         <motion.div
           initial={{ x: "100%" }}
           animate={{ x: 0 }}

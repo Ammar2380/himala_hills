@@ -137,19 +137,20 @@ const ProductCard = ({ product, onSelect }) => {
           </div>
 
           {/* Haptic-Style Action Button */}
-          <motion.button
-            whileTap={{ scale: 0.92 }}
-            onClick={handleSelect}
-            className="w-full relative overflow-hidden bg-gray-900 text-white h-14 rounded-2xl font-black text-sm tracking-widest flex items-center justify-center shadow-xl group"
-          >
-            <span className="relative z-10">ADD TO CART — {formatPrice(mainVariant.price)}</span>
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-400"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+       {/* Refined Haptic-Style Action Button */}
+<motion.button
+  whileTap={{ scale: 0.95 }}
+  onClick={handleSelect}
+  className="w-full relative overflow-hidden bg-gray-900 text-white h-11 rounded-xl font-bold text-xs tracking-wider flex items-center justify-center shadow-md group"
+>
+  <span className="relative z-10">ADD TO CART — {formatPrice(mainVariant.price)}</span>
+  <motion.div 
+    className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-400"
+    initial={{ x: "-100%" }}
+    whileHover={{ x: 0 }}
+    transition={{ duration: 0.3 }}
+  />
+</motion.button>
         </div>
       </motion.div>
     </>

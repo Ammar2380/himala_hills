@@ -63,7 +63,7 @@ const Storefront = () => {
         )}
       </AnimatePresence>
 
-      {/* Cart Drawer */}
+  
       <CartDrawer
         isOpen={isCartOpen}
         cart={cart}
@@ -75,7 +75,7 @@ const Storefront = () => {
         }}
       />
 
-      {/* Checkout Modal */}
+     
       {checkoutOpen && (
         <CheckoutModal
           total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
