@@ -38,14 +38,14 @@ const ProductPage = ({ product, onBack, addToCart }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex justify-center items-end md:items-center"
+      className="fixed inset-0 z-[100]  bg-black/40 backdrop-blur-sm flex justify-center items-end md:items-center"
     >
       <motion.div
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 30, stiffness: 250 }}
-        className="w-full h-[98vh] md:h-[90vh] md:max-w-5xl bg-[#fafafa] rounded-t-[2.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+        className="w-full h-[98vh] md:h-[90vh]  md:max-w-5xl bg-[#fafafa] rounded-t-[2.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
       >
       
         <div className="absolute top-0 left-0 right-0 z-[120] flex items-center justify-between p-4 pointer-events-none">

@@ -27,7 +27,7 @@ const Storefront = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf8f4] text-[#0f172a]"id="product" >
+    <div className="min-h-100 flex justify-center items-center bg-[#faf8f4] text-[#0f172a]"id="product" >
       {/* Product Grid */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
