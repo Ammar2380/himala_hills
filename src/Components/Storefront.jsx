@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { PRODUCTS } from "./Products";
 import ProductCard from "./ProductCard";
 import ProductPage from "./ProductPage";
 import CartDrawer from "./CartDrawer";
 import CheckoutModal from "./CheckoutModal";
+import Navbar from "./Navbar"; // Import your Navbar
 
 const Storefront = () => {
   const [activeProduct, setActiveProduct] = useState(null);
@@ -12,15 +13,17 @@ const Storefront = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
-  // ✅ ADD TO CART
+  // Lock scroll when cart is open
+  useEffect(() => {
+    document.body.style.overflow = isCartOpen ? "hidden" : "unset";
+  }, [isCartOpen]);
+
   const addToCart = (item) => {
     setCart(prev => {
       const existing = prev.find(i => i.cartId === item.cartId);
       if (existing) {
         return prev.map(i =>
-          i.cartId === item.cartId
-            ? { ...i, qty: i.qty + item.qty }
-            : i
+          i.cartId === item.cartId ? { ...i, qty: i.qty + item.qty } : i
         );
       }
       return [...prev, item];
@@ -28,22 +31,22 @@ const Storefront = () => {
     setIsCartOpen(true);
   };
 
-  // ✅ UPDATE QUANTITY (FIX)
   const updateQuantity = (cartId, newQty) => {
     if (newQty < 1) return;
     setCart(prev =>
       prev.map(item =>
-        item.cartId === cartId
-          ? { ...item, qty: newQty }
-          : item
+        item.cartId === cartId ? { ...item, qty: newQty } : item
       )
     );
   };
 
   return (
-    <div className="min-h-100 bg-[#faf8f4]" id="product">
-      <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="min-h-screen bg-[#faf8f4] selection:bg-yellow-200">
+      {/* 1. Navbar gets the cart state and the open function */}
+      <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)} />
+
+      <main className="max-w-7xl mx-auto px-6 py-12 pt-24 md:pt-32" id="product">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {PRODUCTS.map(product => (
             <ProductCard
               key={product.id}
@@ -91,10 +94,7 @@ const Storefront = () => {
       {checkoutOpen && (
         <CheckoutModal
           cart={cart}
-          total={cart.reduce(
-            (sum, i) => sum + i.variant.price * i.qty,
-            0
-          )}
+          total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
           onClose={() => setCheckoutOpen(false)}
           onSuccess={() => setCheckoutOpen(false)}
         />
