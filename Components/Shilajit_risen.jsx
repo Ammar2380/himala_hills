@@ -20,10 +20,10 @@ const ShilajitResin = () => {
     <section ref={containerRef} className="bg-[#FFF9EE] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* --- MOBILE & TABLET VIEW (Mind-Blowing Creative) --- */}
+        
         <div className="lg:hidden flex flex-col gap-12 relative">
           
-          {/* Section 1: The Origin Hook */}
+      
           <div className="relative z-10">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}

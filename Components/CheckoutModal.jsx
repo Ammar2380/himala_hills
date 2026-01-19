@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { X, CheckCircle2, ChevronRight } from "lucide-react";
 import { formatPrice } from "./formatPrice";
 
-const OWNER_WHATSAPP = "923333058456"; // owner number
+const OWNER_WHATSAPP = "923333058456"; 
 
 const CheckoutModal = ({ total, cart, onClose, onSuccess }) => {
   const [step, setStep] = useState(1);
@@ -58,7 +58,7 @@ ${items}
       setStep(2);
 
       setTimeout(() => {
-        window.open(whatsappURL, "_blank"); // 🚀 redirect to WhatsApp
+        window.open(whatsappURL, "_blank"); 
         onSuccess();
         onClose();
       }, 1200);

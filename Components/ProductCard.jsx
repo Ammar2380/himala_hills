@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import Rating from "./Rating";
 
 // Your specific PNG imports
-import Product1 from "./Frame 7.png";
-import Product2 from "./Frame 8.png";
-import Product3 from "./Frame 9.png";
+import Product1 from "./Frame 6.jpg";
+import Product2 from "./Frame 8.jpg";
+import Product3 from "./Frame 7.jpg";
 
 const formatPrice = (amt) =>
   new Intl.NumberFormat("en-GB", {
@@ -70,9 +70,9 @@ const ProductCard = ({ product, onSelect }) => {
             ⚡ Flash Sale
           </span>
         </div>
-        <div className="border border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-bold mb-4">
+        {/* <div className="border border-gray-200 bg-white rounded-xl px-4 py-3 text-sm font-bold mb-4">
           {mainVariant.size} — {formatPrice(mainVariant.price)}
-        </div>
+        </div> */}
         <button
           onClick={handleSelect}
           className="w-full bg-green-500 text-white py-3 rounded-full font-black text-sm hover:bg-green-600 transition shadow-lg"
@@ -137,19 +137,20 @@ const ProductCard = ({ product, onSelect }) => {
           </div>
 
           {/* Haptic-Style Action Button */}
-          <motion.button
-            whileTap={{ scale: 0.92 }}
-            onClick={handleSelect}
-            className="w-full relative overflow-hidden bg-gray-900 text-white h-14 rounded-2xl font-black text-sm tracking-widest flex items-center justify-center shadow-xl group"
-          >
-            <span className="relative z-10">ADD TO CART — {formatPrice(mainVariant.price)}</span>
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-400"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+       {/* Refined Haptic-Style Action Button */}
+<motion.button
+  whileTap={{ scale: 0.95 }}
+  onClick={handleSelect}
+  className="w-full relative overflow-hidden bg-gray-900 text-white h-11 rounded-xl font-bold text-xs tracking-wider flex items-center justify-center shadow-md group"
+>
+  <span className="relative z-10">ADD TO CART — {formatPrice(mainVariant.price)}</span>
+  <motion.div 
+    className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-400"
+    initial={{ x: "-100%" }}
+    whileHover={{ x: 0 }}
+    transition={{ duration: 0.3 }}
+  />
+</motion.button>
         </div>
       </motion.div>
     </>

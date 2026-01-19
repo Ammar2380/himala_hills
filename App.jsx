@@ -15,6 +15,8 @@ import Certifications from './Components/Certificate'
 import LogosMarquee from './Components/Logomorque'
 import ReviewsMarquee from './Components/ReviewsMarquee'
 import ShilajitDifference from './Components/Shilajit_diffence'
+import { ShoppingBag } from "lucide-react";
+
 
 const App = () => {
   return (
