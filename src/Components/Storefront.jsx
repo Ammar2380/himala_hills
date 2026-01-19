@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 import ProductPage from "./ProductPage";
 import CartDrawer from "./CartDrawer";
 import CheckoutModal from "./CheckoutModal";
-import Navbar from "./Navbar"; // Import your Navbar
+import Navbar from "./Navbar"; 
 
 const Storefront = () => {
   const [activeProduct, setActiveProduct] = useState(null);
@@ -42,8 +42,9 @@ const Storefront = () => {
 
   return (
     <div className="min-h-screen bg-[#faf8f4] selection:bg-yellow-200">
-      {/* 1. Navbar gets the cart state and the open function */}
-      <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)} />
+     
+      <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)} showMarquee={false} />
+
 
       <main className="max-w-7xl mx-auto px-6 py-12 pt-24 md:pt-32" id="product">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,14 +92,18 @@ const Storefront = () => {
         }}
       />
 
-      {checkoutOpen && (
-        <CheckoutModal
-          cart={cart}
-          total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
-          onClose={() => setCheckoutOpen(false)}
-          onSuccess={() => setCheckoutOpen(false)}
-        />
-      )}
+    {checkoutOpen && (
+  <CheckoutModal
+    cart={cart}
+    total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
+    onClose={() => setCheckoutOpen(false)}
+    onSuccess={() => {
+      setCart([]);           // Clear the cart
+      setCheckoutOpen(false); // Close the modal
+    }}
+  />
+)}
+
     </div>
   );
 };
