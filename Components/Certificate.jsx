@@ -16,7 +16,7 @@ const Certifications = () => {
   const scale = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1.05, 0.95]), { stiffness: 100, damping: 30 });
 
   return (
-    <section ref={targetRef} className="bg-[#FFF9EE] py-16 overflow-hidden" id="Certificates">
+    <section ref={targetRef} className="bg-[#FFF9EE] py-16 overflow-hidden">
       
       {/* --- MOBILE & TABLET VIEW (Legendary Vertical Story) --- */}
       <div className="lg:hidden px-6 space-y-24">
@@ -53,7 +53,9 @@ const Certifications = () => {
                 </div>
               ))}
             </div>
-       
+            <button className="w-full mt-4 bg-[#1a3d3d] text-white font-bold py-5 rounded-full shadow-xl active:scale-95 transition-transform uppercase tracking-widest text-xs">
+              View All Certifications
+            </button>
           </motion.div>
         </div>
 
@@ -93,14 +95,16 @@ const Certifications = () => {
             ))}
           </ul>
 
-          
+          <button className="w-full bg-white border-2 border-[#1a3d3d] text-[#1a3d3d] font-bold py-5 rounded-full active:scale-95 transition-transform uppercase tracking-widest text-xs">
+            Download Lab Reports
+          </button>
         </div>
       </div>
 
       {/* --- DESKTOP VIEW (UNTOUCHED ORIGINAL GRID) --- */}
-      <div className="hidden lg:grid max-w-7xl mx-auto px-4  md:px-25 grid-cols-2 gap-16 items-center">
-        <div className="flex justify-center md:justify-start  p-10 order-1 md:order-none">
-          <img src={certImg2} alt="Certifications" className="max-w-2xl   w-full shadow-lg" />
+      <div className="hidden lg:grid max-w-7xl mx-auto px-4 md:px-25 grid-cols-2 gap-16 items-center">
+        <div className="flex justify-center md:justify-start order-1 md:order-none">
+          <img src={certImg2} alt="Certifications" className="max-w-2xl w-full shadow-lg" />
         </div>
         <div className="order-2 md:order-none">
           <h4 className="uppercase tracking-wide text-sm font-semibold text-[#1a3d3d]">Himala Hills Standards</h4>
@@ -111,23 +115,20 @@ const Certifications = () => {
             <li>✅ ISO 22000 – Food Safety Management</li>
             <li>✅ HACCP – Risk-Controlled Processing Standards</li>
           </ul>
-         
+          <button className="mt-6 inline-block border border-[#1a3d3d] text-[#1a3d3d] px-6 py-3 rounded-full hover:bg-[#1a3d3d] hover:text-white transition">View Himala Hills Certifications</button>
         </div>
         <div className="order-4 md:order-none">
-          <h3 className="text-4xl font-bold mt-2">Third-Party Lab Verification</h3>
-          <p className="text-gray-700 mt-4 leading-relaxed"><span className="font-semibold text-gray-700 mt-4 leading-relaxed">Tested. Verified. Transparent.</span> Himala Hills believes real quality speaks through evidence.</p>
-          <ul className=" mt-6 space-y-2 text-gray-800">
-  <li>✅ Naturally High Fulvic Acid Levels</li>
-  <li>✅ Zero Heavy Metals</li>
-  <li>✅ No Microbial Contamination</li>
-  <li>✅ Lab-Tested for Purity & Safety</li>
-  <li>✅ 100% Natural & Chemical-Free</li>
-</ul>
-
-         
+          <h3 className="text-2xl font-bold">Third-Party Lab Verification</h3>
+          <p className="text-gray-700 mt-3 leading-relaxed"><span className="font-semibold">Tested. Verified. Transparent.</span> Himala Hills believes real quality speaks through evidence.</p>
+          <ul className="mt-4 space-y-2 text-gray-800">
+            <li>✅ Naturally High Fulvic Acid Levels</li>
+            <li>✅ Zero Heavy Metals</li>
+            <li>✅ No Microbial Contamination</li>
+          </ul>
+          <button className="mt-6 inline-block border border-[#1a3d3d] text-[#1a3d3d] px-6 py-3 rounded-full hover:bg-[#1a3d3d] hover:text-white transition">View Lab Test Reports</button>
         </div>
-        <div className="flex justify-center md:justify-end order-3 p-10 md:order-none">
-          <img src={certImg1} alt="Lab Reports" className="max-w-2xl  w-full shadow-lg" />
+        <div className="flex justify-center md:justify-end order-3 md:order-none">
+          <img src={certImg1} alt="Lab Reports" className="max-w-2xl w-full shadow-lg" />
         </div>
       </div>
     </section>

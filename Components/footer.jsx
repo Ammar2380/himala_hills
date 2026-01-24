@@ -28,10 +28,10 @@ export default function Footer() {
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             src={img} 
-            className="h-20 mx-auto mb-4 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]"
+            className="h-60 mx-auto mb-4 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]"
           />
-          <h2 className="text-3xl font-serif uppercase leading-tight">Himala <br/> <span className="text-[#c5a059]">Hills</span></h2>
-          <p className="text-[#c5a059] text-[10px] font-bold uppercase tracking-[0.3em] mt-2 italic opacity-80">The Essence of Purity</p>
+          <h2 className="text-3xl font-cinzel uppercase leading-tight">Himala <br/> <span className="text-[#c5a059]">Hills</span></h2>
+          <p className="text-[#c5a059] text-[10px] font-cinzel uppercase tracking-[0.3em] mt-2 italic opacity-80">The Essence of Purity</p>
         </div>
 
         {/* Trust Slider */}
@@ -126,9 +126,9 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="col-span-4 space-y-5">
             <div className="flex flex-col gap-3">
-              <img src={img} alt="Logo" className="h-16 w-16 object-contain" />
+              <img src={img} alt="Logo" className="h-30 w-30 object-contain" />
               <div>
-                <h1 className="text-2xl uppercase font-serif tracking-tight">Himala Hills</h1>
+                <h1 className="text-2xl uppercase font-cinzel tracking-tight">Himala Hills</h1>
                 <p className="text-[#c5a059] text-xs font-medium italic">The Essence of Purity</p>
               </div>
             </div>
