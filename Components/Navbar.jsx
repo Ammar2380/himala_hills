@@ -59,7 +59,7 @@ const Navbar = ({ cart = [], onCartOpen, showMarquee = true }) => {
                 <li
                   key={s.id}
                   onClick={() => handleScroll(s.id)}
-                  className="hover:text-yellow-400 transition-colors uppercase font-bold tracking-widest"
+                  className="hover:text-yellow-400 transition-colors uppercase  tracking-widest"
                 >
                   {s.label}
                 </li>

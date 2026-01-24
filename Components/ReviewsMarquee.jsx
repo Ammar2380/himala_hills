@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import image1 from './imggg (1).jpg'
+import image2 from './imggg (2).jpg'
+import image3 from './imggg (3).jpg'
+import image4 from './imggg (4).jpg'
+import image5 from './imggg (5).jpg'
 const reviews = [
   {
     name: "Juraime",
@@ -68,7 +73,7 @@ const reviews = [
     rating: 5,
     content: "Amazing results! I feel more active and focused than before.",
   },
-  // 20% international dummy reviews
+
   {
     name: "Emma L.",
     date: "Feb 10, 2026",
@@ -142,10 +147,16 @@ const ReviewsMarquee = () => {
           </h2>
           <div className="flex items-center lg:justify-center gap-3">
             <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#FFF9EE] bg-gray-400" />
-              ))}
-            </div>
+  {[image1, image2, image3, image4, image5].map((img, i) => (
+    <img
+      key={i}
+      src={img}
+      alt={`user-${i}`}
+      className="w-8 h-8 rounded-full border-2 border-[#FFF9EE] object-cover"
+    />
+  ))}
+</div>
+
             <p className="text-sm md:text-lg text-gray-600 font-medium">
               Join 10,000+ happy customers
             </p>
