@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
 const reviews = [
   {
     name: "Juraime",
@@ -21,7 +20,7 @@ const reviews = [
     content: "The quality of all their products is top-notch. Highly trustworthy and effective!",
   },
   {
-    name: "Samantha W.",
+    name: "Aliza W.",
     date: "May 12, 2025",
     rating: 5,
     content: "I’ve noticed a significant improvement in my energy and focus. Highly recommend!",
@@ -31,8 +30,59 @@ const reviews = [
     date: "Dec 10, 2025",
     rating: 5,
     content: "Exceeded my expectations. The packaging was great and the results are even better.",
+  },
+
+  {
+    name: "Ahmed R.",
+    date: "Jan 8, 2026",
+    rating: 5,
+    content: "Product quality is excellent! Delivery in Karachi was super fast.",
+  },
+  {
+    name: "Sana K.",
+    date: "Feb 15, 2026",
+    rating: 4,
+    content: "Very happy with the product. Customer service was helpful too!",
+  },
+  {
+    name: "Ali H.",
+    date: "Mar 3, 2026",
+    rating: 5,
+    content: "Really impressed! Works exactly as described. Highly recommended.",
+  },
+  {
+    name: "Ayesha N.",
+    date: "Mar 20, 2026",
+    rating: 5,
+    content: "My energy levels improved a lot. Love this product!",
+  },
+  {
+    name: "Bilal M.",
+    date: "Apr 5, 2026",
+    rating: 4,
+    content: "Good product overall. Packaging could be better.",
+  },
+  {
+    name: "Zoya F.",
+    date: "Apr 18, 2026",
+    rating: 5,
+    content: "Amazing results! I feel more active and focused than before.",
+  },
+  // 20% international dummy reviews
+  {
+    name: "Emma L.",
+    date: "Feb 10, 2026",
+    rating: 5,
+    content: "Received my package in the US quickly. Product is amazing!",
+  },
+  {
+    name: "Liam J.",
+    date: "Mar 12, 2026",
+    rating: 4,
+    content: "Very effective and well-packaged. Happy with the purchase!",
   }
 ];
+
 
 // Helper Component for Stars
 const StarRating = ({ rating }) => {
