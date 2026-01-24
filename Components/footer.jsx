@@ -128,7 +128,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <img src={img} alt="Logo" className="h-16 w-16 object-contain" />
               <div>
-                <h1 className="text-2xl uppercase font-serif tracking-tight">Himala Hills</h1>
+                <h1 className="text-2xl uppercase font-cinzel tracking-tight">Himala Hills</h1>
                 <p className="text-[#c5a059] text-xs font-medium italic">The Essence of Purity</p>
               </div>
             </div>
