@@ -61,17 +61,18 @@ const Storefront = () => {
       <AnimatePresence>
         {activeProduct && (
           <ProductPage
-            product={activeProduct}
-            isCartOpen={isCartOpen}
-            onBack={() => setActiveProduct(null)}
-            addToCart={(product, variant, quantity) =>
-              addToCart({
-                cartId: `${product.id}-${variant.size}`,
-                id: product.id,
-                name: product.name,
-                img: product.images[0],
-                variant,
-                qty: quantity,
+           product={activeProduct}
+  isCartOpen={isCartOpen}
+  onBack={() => setActiveProduct(null)}
+  addToCart={(product, variant, quantity) =>
+    addToCart({
+      // Change .size to .name to match your Product data
+      cartId: `${product.id}-${variant.name}`, 
+      id: product.id,
+      name: product.name,
+      img: product.images[0],
+      variant, // This now carries the correct name: "15g", "30g", etc.
+      qty: quantity,
               })
             }
           />

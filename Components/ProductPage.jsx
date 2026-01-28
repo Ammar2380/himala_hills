@@ -15,6 +15,9 @@ import {
   Maximize  // Add this
 } from 'lucide-react';
 import Rating from './Rating';
+import sticker1 from './sticker1.webp'
+import sticker2 from './sticker2.webp'
+import sticker3 from './sticker3.webp'
 const ProductPage = ({ product, onBack, addToCart }) => {
   // 2. This state controls which gram is active
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
@@ -180,16 +183,57 @@ const formatPrice = (amt) =>
 
     {/* Description */}
     <div className="space-y-4">
-      <p className="text-gray-500 text-sm md:text-base leading-relaxed">{product.description}</p>
-      <div className="grid grid-cols-2 gap-3">
-        <div className="flex items-center gap-2 text-xs font-bold text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100">
-          <Truck size={16} className="text-green-600" /> Free Shipping
-        </div>
-        <div className="flex items-center gap-2 text-xs font-bold text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100">
-          <ShieldCheck size={16} className="text-green-600" /> Lab Certified
-        </div>
-      </div>
+  {/* Compact Description */}
+  <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-default">
+    {product.description}
+  </p>
+
+  {/* Feature Grid - Smaller Padding */}
+  <div className="grid grid-cols-2 gap-2">
+    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
+      <Truck size={14} className="text-green-600" /> Free Shipping
     </div>
+    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
+      <ShieldCheck size={14} className="text-green-600" /> Lab Certified
+    </div>
+  </div>
+{/* Stickers Group - Absolute Positioned */}
+  <div className=" flex md:gap-10 pointer-events-none">
+    <motion.img 
+      initial={{ rotate: -15, y: -5 }}
+      whileHover={{ rotate: 0, scale: 1.1 }}
+      src={sticker1} 
+      alt="Seal 1" 
+      className="w-20 h-20 object-contain drop-shadow-md z-30" 
+    />
+    <motion.img 
+      initial={{ rotate: 10, y: 2 }}
+      whileHover={{ rotate: 5, scale: 1.1 }}
+      src={sticker2} 
+      alt="Seal 2" 
+      className="w-20 h-20 object-contain drop-shadow-md z-20" 
+    />
+    <motion.img 
+      initial={{ rotate: -5, x: -2 }}
+      whileHover={{ rotate: -10, scale: 1.1 }}
+      src={sticker3} 
+      alt="Seal 3" 
+      className="w-20 h-20 object-contain drop-shadow-md z-10 opacity-80" 
+    />
+  </div>
+  {/* How to Use Section - Minimalist */}
+  <div className="pt-2 border-t border-gray-100">
+    <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">How to Use</h4>
+    <div className="bg-green-50/30 p-3 rounded-xl flex gap-3 items-start">
+      <div className="bg-green-600 text-white p-1 rounded-md mt-0.5">
+  
+      </div>
+      <p className="text-[11px] font-medium text-gray-600 leading-snug">
+        {product.suggestedUse}
+      </p>
+    </div>
+  </div>
+</div>
 
     {/* Urgency */}
     <div className="flex items-center gap-2 text-red-600 py-3 border-y border-gray-50">
