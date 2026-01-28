@@ -65,7 +65,7 @@ const Navbar = ({ cart = [], onCartOpen, showMarquee = true }) => {
                 </li>
               ))}
             </ul>
-
+ 
             <button
               onClick={onCartOpen}
               className="relative text-white hover:text-yellow-400 transition-colors p-2"

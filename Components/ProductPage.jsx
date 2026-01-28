@@ -1,169 +1,186 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ShoppingCart, Heart, Share2, Minus, Plus } from 'lucide-react';
-import { formatPrice } from './formatPrice';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight, ArrowLeft as ChevronLeft, ShoppingCart, Minus, Plus, Zap, ShieldCheck, Truck, Star } from 'lucide-react';
 import Rating from './Rating';
-import VariantSelector from './VariantSelector';
-import CheckoutModal from './CheckoutModal';
+
+const formatPrice = (amt) =>
+  new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+  }).format(amt);
 
 const ProductPage = ({ product, onBack, addToCart }) => {
-  // 1. FIXED: Initialize with the first variant's image if available
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const [currentImage, setCurrentImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const scrollRef = useRef(null);
 
-  // 2. FIXED: Update current image when variant changes
-  const handleVariantSelect = (variant) => {
-    setSelectedVariant(variant);
-  };
-
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-
-  const handleAddToCart = () => {
-    addToCart(product, selectedVariant, quantity);
-    // setCheckoutOpen(true); // OPEN MODAL
-  };
-
-  const { scrollYProgress } = useScroll({ container: scrollRef });
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const discount = selectedVariant.oldPrice 
+    ? Math.round(((selectedVariant.oldPrice - selectedVariant.price) / selectedVariant.oldPrice) * 100) 
+    : 0;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'unset'; };
   }, []);
 
+  const handleAddToCart = () => {
+    addToCart(product, selectedVariant, quantity);
+  };
+
+  const nextImage = () => setCurrentImage((prev) => (prev + 1) % product.images.length);
+  const prevImage = () => setCurrentImage((prev) => (prev - 1 + product.images.length) % product.images.length);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100]  bg-black/40 backdrop-blur-sm flex justify-center items-end md:items-center"
+      className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-md flex justify-center items-end md:items-center p-0 md:p-6"
     >
       <motion.div
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 30, stiffness: 250 }}
-        className="w-full h-[98vh] md:h-[90vh]  md:max-w-5xl bg-[#fafafa] rounded-t-[2.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+        className="w-full h-[98vh] md:h-[90vh] md:max-w-6xl bg-white rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
       >
-      
-        <div className="absolute top-0 left-0 right-0 z-[120] flex items-center justify-between p-4 pointer-events-none">
+        
+        {/* --- LEFT: IMAGE SECTION --- */}
+        <div className="relative w-full h-[40vh] md:h-full md:w-[55%] bg-white flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-gray-100 flex-shrink-0">
           <button 
             onClick={onBack} 
-            className="pointer-events-auto w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md active:scale-90 transition-transform"
+            className="absolute top-6 left-6 z-[130] w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur shadow-lg active:scale-90 transition-all"
           >
-            <ArrowLeft size={18} />
-          </button>
-        </div>
-
-        {/* --- HUGE IMAGE SECTION --- */}
-        <div className="relative w-full h-[70vh] md:h-full md:w-3/5 bg-[#ffffff] flex items-center justify-center overflow-hidden">
-          <motion.div 
-            className="w-full h-full  flex items-center justify-center"
-          >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImage}
-                src={product.images[currentImage]}
-                className="w-full h-full object-contain bg-[#ffffff] "
-              />
-            </AnimatePresence>
-          </motion.div>
-
-          <button
-            onClick={() => setCurrentImage((i) => Math.max(0, i - 1))}
-            disabled={currentImage === 0}
-            className="absolute left-3 w-9 h-9 rounded-full bg-[#ffffff] flex items-center justify-center"
-          >
-            ‹
+            <ChevronLeft size={20} />
           </button>
 
-          <button
-            onClick={() =>
-              setCurrentImage((i) =>
-                Math.min(product.images.length - 1, i + 1)
-              )
-            }
-            disabled={currentImage === product.images.length - 1}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white backdrop-blur flex items-center justify-center shadow disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white transition"
-          >
-            ›
-          </button>
-        </div>
-
-        {/* --- CONTENT SECTION --- */}
-        <div 
-          ref={scrollRef}
-          className="w-full md:w-2/5 h-full overflow-y-auto bg-white flex flex-col relative"
-        >
-          <div className="px-6 pt-8 pb-32 space-y-6">
-            <div>
-              <Rating value={product.rating} count={product.reviewsCount} />
-              <h1 className="text-3xl font-bold text-gray-900 mt-2">{product.name}</h1>
-              <p className="text-gray-500 mt-4 leading-relaxed">{product.description}</p>
-            </div>
-
-            {/* <div className="pt-6 border-t border-gray-100">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Select Variant</h3>
-              <VariantSelector 
-                variants={product.variants} 
-                selected={selectedVariant} 
-                onSelect={handleVariantSelect} 
-              />
-            </div> */}
+          <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 z-[125] flex justify-between pointer-events-none">
+            <button onClick={prevImage} className="pointer-events-auto w-10 h-10 rounded-full bg-white/40 hover:bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md transition-all active:scale-90">
+              <ChevronLeft size={24} className="text-gray-900" />
+            </button>
+            <button onClick={nextImage} className="pointer-events-auto w-10 h-10 rounded-full bg-white/40 hover:bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md transition-all active:scale-90">
+              <ArrowRight size={24} className="text-gray-900" />
+            </button>
           </div>
 
-          {/* --- COMPACT DOCK --- */}
-          <div className="fixed md:absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent">
-            <div className="bg-gray-900 rounded-full p-1.5 pl-6 flex items-center justify-between shadow-xl">
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-lg">{formatPrice(selectedVariant.price * quantity)}</span>
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImage}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              src={product.images[currentImage]}
+              className="w-full h-full object-contain p-8 md:p-12"
+            />
+          </AnimatePresence>
+
+          <div className="absolute bottom-6 flex gap-2">
+            {product.images.map((_, i) => (
+              <div key={i} className={`h-1.5 transition-all duration-300 rounded-full ${currentImage === i ? 'w-8 bg-gray-900' : 'w-2 bg-gray-300'}`} />
+            ))}
+          </div>
+        </div>
+
+        {/* --- RIGHT: CONTENT & DOCK WRAPPER --- */}
+        <div className="w-full md:w-[45%] h-[58vh] md:h-full flex flex-col bg-white">
+          
+          {/* Scrollable Area */}
+          <div className="flex-1 overflow-y-auto px-6 md:px-8 pt-8 pb-4">
+            <div className="space-y-6">
+              
+              {/* Header Info */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Rating value={product.rating} count={product.reviewsCount} />
+                  <span className="bg-red-50 text-red-600 text-[10px] font-black px-2 py-1 rounded flex items-center gap-1 uppercase tracking-widest">
+                    <Zap size={10} fill="currentColor" /> Flash Sale
+                  </span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight">
+                  {product.name}
+                </h1>
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl font-black text-gray-900">{formatPrice(selectedVariant.price)}</span>
+                  {selectedVariant.oldPrice > 0 && (
+                    <div className="flex flex-col">
+                      <span className="text-base text-gray-400 line-through leading-none">{formatPrice(selectedVariant.oldPrice)}</span>
+                      <span className="text-green-600 font-bold text-[10px] uppercase mt-1">Save {discount}% Today</span>
+                    </div>
+                  )}
+                </div>
               </div>
 
-             <div className="flex items-center gap-2 md:gap-4">
-  {/* Quantity Controls - Made more compact on mobile */}
-  <div className="flex items-center bg-gray-800 rounded-full p-1 md:px-2 md:py-1">
-    <button 
-      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-      className="text-white p-1 hover:bg-gray-700 rounded-full transition"
-    >
-      <Minus size={12} className="md:w-[14px]" />
-    </button>
-    <span className="text-white text-xs md:text-sm font-bold w-5 md:w-6 text-center">
-      {quantity}
-    </span>
-    <button 
-      onClick={() => setQuantity(quantity + 1)}
-      className="text-white p-1 hover:bg-gray-700 rounded-full transition"
-    >
-      <Plus size={12} className="md:w-[14px]" />
-    </button>
-  </div>
+              {/* Promo Box */}
+              <div className="p-4 bg-amber-50 rounded-2xl border border-amber-100">
+                <h3 className="text-amber-800 font-bold text-xs flex items-center gap-2 mb-1 uppercase tracking-wider">
+                  <Star size={12} fill="currentColor" /> Transformation Deal
+                </h3>
+                <p className="text-amber-700/80 text-xs leading-relaxed">
+                  Order in the next 2 hours to secure your <strong>{discount}% discount</strong> and priority shipping.
+                </p>
+              </div>
 
-  <button
-    onClick={handleAddToCart}
-    className="bg-white text-black h-9 md:h-10 px-3 md:px-6 rounded-full font-bold text-[10px] md:text-xs flex items-center gap-1.5 md:gap-2 active:scale-95 transition-transform whitespace-nowrap"
-  >
-    <ShoppingCart size={13} className="md:w-[14px]" />
-    <span className="hidden xs:inline">ADD TO CART</span>
-    <span className="xs:hidden uppercase font-bold">ADD to cart</span>
-  </button>
-</div>
+              {/* Description */}
+              <div className="space-y-4">
+                <p className="text-gray-500 text-sm md:text-base leading-relaxed">{product.description}</p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center gap-2 text-xs font-bold text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <Truck size={16} className="text-green-600" /> Free Shipping
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-gray-700 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <ShieldCheck size={16} className="text-green-600" /> Lab Certified
+                  </div>
+                </div>
+              </div>
+
+              {/* Urgency */}
+              <div className="flex items-center gap-2 text-red-600 py-3 border-y border-gray-50">
+                <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-widest">Only 7 units left at this price</span>
+              </div>
             </div>
           </div>
 
-          {/* --- ADD CHECKOUT MODAL HERE --- */}
-          {checkoutOpen && (
-            <CheckoutModal
-              total={selectedVariant.price * quantity}
-              cart={[{ product, variant: selectedVariant, qty: quantity }]}
-              onClose={() => setCheckoutOpen(false)}
-              onSuccess={() => setCheckoutOpen(false)}
-            />
-          )}
+          {/* --- FIXED BOTTOM DOCK (ALWAYS DOWN) --- */}
+         <div className="p-3 md:p-8 bg-white border-t border-gray-100 flex-shrink-0">
+  <div className="bg-gray-950 rounded-[1.5rem] md:rounded-3xl p-1.5 flex items-center justify-between shadow-xl">
+    
+    {/* Compact Quantity Selector */}
+    <div className="flex items-center bg-white/10 rounded-[1.2rem] p-0.5 md:p-1 ml-0.5">
+      <button 
+        onClick={() => setQuantity(Math.max(1, quantity - 1))} 
+        className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90"
+      >
+        <Minus size={14} className="md:size-4" />
+      </button>
+      
+      <span className="text-white font-bold w-6 md:w-10 text-center text-xs md:text-base">
+        {quantity}
+      </span>
+      
+      <button 
+        onClick={() => setQuantity(quantity + 1)} 
+        className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90"
+      >
+        <Plus size={14} className="md:size-4" />
+      </button>
+    </div>
+
+    {/* Small Responsive Button */}
+    <button
+      onClick={handleAddToCart}
+      className="bg-green-500 hover:bg-green-400 text-gray-950 h-10 md:h-14 px-4 md:px-10 rounded-[1.2rem] md:rounded-3xl font-black transition-all active:scale-95 shadow-lg shadow-green-500/10 flex items-center gap-2"
+    >
+      <ShoppingCart size={14} className="md:size-[18px]" />
+      <span className="uppercase text-[10px] md:text-sm tracking-tight whitespace-nowrap">
+        Add <span className="hidden xs:inline">to Cart</span> — {formatPrice(selectedVariant.price * quantity)}
+      </span>
+    </button>
+
+  </div>
+</div>
+
         </div>
-        
       </motion.div>
     </motion.div>
   );

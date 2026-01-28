@@ -63,16 +63,40 @@ const HowToUse = () => {
       </div>
 
       {/* --- DESKTOP VIEW (Untouched Original Logic) --- */}
-      <div className="hidden lg:block relative max-w-5xl mx-auto px-6 text-start">
-        <h2 className="text-6xl tracking-tighter font-bold">How to Use</h2>
-        <p className="text-lg font-medium leading-5 tracking-tighter max-w-xl mt-1">
-          Take a pea-sized amount (300–500 mg).<br />
-          Mix in warm water, milk, or green tea.<br />
-          Use once or twice daily for best results.<br />
-          Store in a cool, dry place.
-        </p>
-        <img src={d2} alt="" className="h-16 mt-10" />
+    <div className="hidden lg:block relative max-w-5xl mx-auto px-6 text-start">
+  {/* --- Background Glows --- */}
+  <div className="absolute -top-20 -left-20 w-80 h-80 bg-[#c5a059]/15 blur-[120px] pointer-events-none" />
+  <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#c5a059]/10 blur-[150px] pointer-events-none" />
+
+  <h2 className="relative z-10 text-6xl tracking-tighter font-bold mb-10">How to Use</h2>
+  
+  {/* The 2x2 Grid with Backdrop Blur */}
+  <div className="relative z-10 grid grid-cols-2 gap-x-12 gap-y-10 max-w-2xl">
+    {[
+      { id: "01", text: "Take a pea-sized amount (300–500 mg)." },
+      { id: "02", text: "Mix in warm water, milk, or green tea." },
+      { id: "03", text: "Use once or twice daily for best results." },
+      { id: "04", text: "Store in a cool, dry place." }
+    ].map((step) => (
+      <div key={step.id} className="relative group">
+        {/* Step Label */}
+        <span className="block text-[#c5a059] text-sm font-black mb-2 opacity-70 tracking-[0.2em]">
+          STEP {step.id}
+        </span>
+        
+        {/* Point with Glassmorphism Border */}
+        <div className="relative p-4 -ml-4 rounded-2xl transition-all duration-300 bg-white/5 backdrop-blur-sm">
+          <p className="text-xl font-medium leading-tight tracking-tighter border-l-2 border-[#c5a059]/30 pl-4 border-[#c5a059] transition-all">
+            {step.text}
+          </p>
+        </div>
       </div>
+    ))}
+  </div>
+
+  {/* Branding Logo */}
+  <img src={d2} alt="" className="relative z-10 h-16 mt-12 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]" />
+</div>
 
       {/* Desktop Image Section (Hidden on Mobile as per original) */}
       <img

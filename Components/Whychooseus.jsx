@@ -78,16 +78,52 @@ const WhyChoose = () => {
       </div>
 
       {/* --- DESKTOP VIEW (UNTOUCHED ORIGINAL) --- */}
-      <div className="hidden lg:block relative z-10 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8">
-          Why Choose Himala Hills?
-        </h2>
-        <ul className="space-y-4">
-          {points.map((p, i) => (
-            <li key={i}>✔ {p}</li>
-          ))}
-        </ul>
-      </div>
+     <div className="hidden lg:block relative z-10 max-w-5xl mx-auto px-6">
+  {/* --- Background Ambient Glow --- */}
+  <div className="absolute -left-20 -top-20 w-72 h-72 bg-[#c5a059]/10 blur-[120px] pointer-events-none -z-10" />
+
+  {/* Header: More compact spacing */}
+  <div className="relative mb-10">
+    <h2 className="text-5xl font-black tracking-tighter leading-[1.1] mb-3">
+      Why Choose <br /> 
+      <span className="text-[#c5a059]">Himala Hills?</span>
+    </h2>
+    <div className="h-1 w-16 bg-[#c5a059]" />
+  </div>
+
+  {/* 2x2 Interactive Grid: Reduced gap and max-width for "Small" look */}
+  <div className="grid grid-cols-2 gap-4 max-w-3xl">
+    {points.map((p, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.05 }}
+        className="group relative p-0.5 rounded-[1.75rem] overflow-hidden transition-all duration-500"
+      >
+        {/* Animated Gradient Border (The Secret Sauce) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-[#c5a059]/30 opacity-50 group-hover:opacity-100 transition-opacity" />
+
+        {/* Card Content */}
+        <div className="relative bg-[#0a0a0a]/80 backdrop-blur-xl rounded-[1.7rem] p-5 lg:p-6 h-full flex items-center gap-4">
+          {/* Icon: Slightly smaller and more refined */}
+          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#c5a059]/10 flex items-center justify-center border border-[#c5a059]/30 group-hover:bg-[#c5a059]/20 transition-all duration-300">
+            <span className="text-[#c5a059] font-bold text-lg">✓</span>
+          </div>
+          
+          {/* Text: Scaled to XL for better readability/elegance */}
+          <p className="text-xl font-bold tracking-tight text-white/80 group-hover:text-white transition-colors duration-300">
+            {p}
+          </p>
+
+          {/* Subtle Inner Glow on Hover */}
+          <div className="absolute inset-0 bg-[#c5a059]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
 
       {/* Desktop Specific Image (Hidden on Mobile) */}
       <img

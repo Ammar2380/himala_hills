@@ -21,7 +21,7 @@ const LogosMarquee = () => {
             key={index}
             src={logo}
             alt="Certification Logo"
-            className="h-14 md:h-40  object-contain opacity-80 hover:opacity-100 transition"
+            className="h-30 md:h-40  object-contain opacity-80 hover:opacity-100 transition"
           />
         ))}
       </div>

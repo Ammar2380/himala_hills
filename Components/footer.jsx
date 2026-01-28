@@ -159,7 +159,7 @@ export default function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-[#c5a059]">Support</h3>
             <div className="flex flex-col gap-3 text-gray-300 text-xs">
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#c5a059]" /> <span>support@himalahills.com</span>
+                <Mail size={14} className="text-[#c5a059]" /> <span>himalahills@gmail.com </span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-[#c5a059]" /> <span>+923333058456</span>
