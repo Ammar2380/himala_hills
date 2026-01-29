@@ -225,9 +225,7 @@ const formatPrice = (amt) =>
   <div className="pt-2 border-t border-gray-100">
     <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">How to Use</h4>
     <div className="bg-green-50/30 p-3 rounded-xl flex gap-3 items-start">
-      <div className="bg-green-600 text-white p-1 rounded-md mt-0.5">
-  
-      </div>
+      
       <p className="text-[11px] font-medium text-gray-600 leading-snug">
         {product.suggestedUse}
       </p>
@@ -237,8 +235,8 @@ const formatPrice = (amt) =>
 
     {/* Urgency */}
     <div className="flex items-center gap-2 text-red-600 py-3 border-y border-gray-50">
-      <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
-      <span className="text-[10px] font-black uppercase tracking-widest">Only 7 units left at this price</span>
+    
+    
     </div>
   </div>
 </div>
