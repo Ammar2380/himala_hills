@@ -14,67 +14,56 @@ export const PRODUCTS = [
   {
     id: 1,
     name: "Himala Hills – Shilajit Gold",
-    description: "Premium refined Himalayan Shilajit resin sourced from the high-altitude rocks of Gilgit–Baltistan and purified through traditional slow filtration. Specially crafted for mature adults (40+), athletes, and high-performance individuals seeking maximum strength, recovery, and youthful vitality.",
-    longDescription: "Packed with Fulvic Acid, Humic minerals, amino acids, and antioxidants, Shilajit Gold helps fight fatigue, enhance cellular energy, support testosterone balance, and promote long-term vitality and longevity.",
+    description: "Premium refined Himalayan Shilajit resin. Specially crafted for mature adults (40+), athletes, and high-performance individuals.",
+    longDescription: "Packed with Fulvic Acid, Humic minerals, amino acids, and antioxidants.",
     images: [Product3a, Product3b, Product3c],
     rating: 4.8,
     reviewsCount: 1240,
+    currency: "PKR",
+    // Base price for calculations to prevent NaN if your code looks for product.price
+    price: 2999, 
     variants: [
-      { name: "15g", price: 20.00, oldPrice: 29.99, stock: 15 },
-      { name: "30g", price: 35.00, oldPrice: 49.99, stock: 10 },
-      { name: "50g", price: 55.00, oldPrice: 79.99, stock: 5 },
+      { name: "15g", price: 2999, stock: 45 },
+      { name: "30g", price: 5499, stock: 30 },
+      { name: "50g", price: 7999, stock: 20 },
     ],
-    features: [
-      "Elite Gold Grade Resin",
-      "High Fulvic Acid Content",
-      "Supports Strength & Recovery",
-      "Anti-Fatigue & Longevity Support",
-      "Lab Purified & Certified",
-    ],
-    suggestedUse: "Dissolve a pea-sized portion (300–500 mg) in warm water, milk, or green tea once or twice daily."
+    features: ["Elite Gold Grade Resin", "High Fulvic Acid", "Lab Purified"],
+    suggestedUse: "300–500 mg daily in warm water."
   },
   {
     id: 2,
     name: "Himala Hills – Shilajit Plus",
-    description: "An enhanced vitality and male wellness formula designed for men aged 30+ who seek higher stamina, confidence, and physical performance. Sourced from pure Himalayan rocks of Gilgit–Baltistan.",
-    longDescription: "Enriched with Fulvic minerals, trace elements, and bioactive compounds, Shilajit Plus naturally supports testosterone balance, energy production, stress reduction, and reproductive wellness.",
+    description: "Enhanced vitality formula for men aged 30+ seeking higher stamina and performance.",
+    longDescription: "Supports testosterone balance and energy production.",
     images: [Product2a, Product2b, Product2c],
     rating: 4.9,
     reviewsCount: 850,
+    currency: "PKR",
+    price: 2499,
     variants: [
-      { name: "15g", price: 20.00, oldPrice: 29.99, stock: 42 },
-      { name: "30g", price: 35.00, oldPrice: 49.99, stock: 20 },
-      { name: "50g", price: 55.00, oldPrice: 79.99, stock: 12 },
+      { name: "15g", price: 2499, stock: 55 },
+      { name: "30g", price: 4499, stock: 25 },
+      { name: "50g", price: 6499, stock: 15 },
     ],
-    features: [
-      "Male Vitality Formula",
-      "Boosts Stamina & Endurance",
-      "Supports Healthy Testosterone",
-      "Stress & Fatigue Reduction",
-      "Fast Absorbing Resin Extract",
-    ],
-    suggestedUse: "Take a pea-sized portion (300–500 mg) once or twice daily dissolved in warm water or milk."
+    features: ["Male Vitality", "Boosts Stamina", "Testosterone Support"],
+    suggestedUse: "300–500 mg daily."
   },
   {
     id: 3,
     name: "Himala Hills – Shilajit Regular",
-    description: "A balanced daily-use Himalayan Shilajit resin sun-dried at high altitudes in Gilgit–Baltistan. Ideal for adults aged 25–40 to maintain natural energy, focus, and stamina.",
-    longDescription: "Rich in Fulvic and Humic minerals, antioxidants, and trace elements, Shilajit Regular supports daily vitality, mental clarity, immunity, and nutrient absorption—without caffeine or stimulants.",
+    description: "Balanced daily-use resin for adults aged 25–40 to maintain natural energy.",
+    longDescription: "Supports daily vitality, mental clarity, and immunity.",
     images: [Product1a, Product1b, Product1c],
     rating: 4.7,
     reviewsCount: 560,
+    currency: "PKR",
+    price: 1999,
     variants: [
-      { name: "15g", price: 20.00, oldPrice: 29.99, stock: 25 },
-      { name: "30g", price: 35.00, oldPrice: 49.99, stock: 15 },
-      { name: "50g", price: 55.00, oldPrice: 79.99, stock: 8 },
+      { name: "15g", price: 1999, stock: 80 },
+      { name: "30g", price: 3499, stock: 40 },
+      { name: "50g", price: 4999, stock: 25 },
     ],
-    features: [
-      "Daily Vitality Support",
-      "Improves Focus & Productivity",
-      "Boosts Natural Energy",
-      "Supports Immunity",
-      "Pure Himalayan Source",
-    ],
-    suggestedUse: "Dissolve 300–500 mg in warm water, milk, or tea once or twice daily."
+    features: ["Daily Energy", "Focus & Productivity", "Immunity Boost"],
+    suggestedUse: "300–500 mg daily."
   }
 ];
