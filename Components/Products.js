@@ -48,22 +48,22 @@ export const PRODUCTS = [
     features: ["Male Vitality", "Boosts Stamina", "Testosterone Support"],
     suggestedUse: "300–500 mg daily."
   },
-  {
-    id: 3,
-    name: "Himala Hills – Shilajit Regular",
-    description: "Balanced daily-use resin for adults aged 25–40 to maintain natural energy.",
-    longDescription: "Supports daily vitality, mental clarity, and immunity.",
-    images: [Product1a, Product1b, Product1c],
-    rating: 4.7,
-    reviewsCount: 560,
-    currency: "PKR",
-    price: 1999,
-    variants: [
-      { name: "15g", price: 1999, stock: 80 },
-      { name: "30g", price: 3499, stock: 40 },
-      { name: "50g", price: 4999, stock: 25 },
-    ],
-    features: ["Daily Energy", "Focus & Productivity", "Immunity Boost"],
-    suggestedUse: "300–500 mg daily."
-  }
+  // {
+  //   id: 3,
+  //   name: "Himala Hills – Shilajit Regular",
+  //   description: "Balanced daily-use resin for adults aged 25–40 to maintain natural energy.",
+  //   longDescription: "Supports daily vitality, mental clarity, and immunity.",
+  //   images: [Product1a, Product1b, Product1c],
+  //   rating: 4.7,
+  //   reviewsCount: 560,
+  //   currency: "PKR",
+  //   price: 1999,
+  //   variants: [
+  //     { name: "15g", price: 1999, stock: 80 },
+  //     { name: "30g", price: 3499, stock: 40 },
+  //     { name: "50g", price: 4999, stock: 25 },
+  //   ],
+  //   features: ["Daily Energy", "Focus & Productivity", "Immunity Boost"],
+  //   suggestedUse: "300–500 mg daily."
+  // }
 ];
