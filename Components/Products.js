@@ -34,21 +34,27 @@ export const PRODUCTS = [
   {
     id: 2,
     name: "Himala Hills – Shilajit Plus",
+    isFlashSale: true,
+    saleLabel: "FLASH SALE",
+    discountPercentage: "35% OFF",
     description: "Enhanced vitality formula for men aged 30+ seeking higher stamina and performance.",
     longDescription: "Supports testosterone balance and energy production.",
     images: [Product2a, Product2b, Product2c],
     rating: 4.9,
     reviewsCount: 850,
     currency: "PKR",
-    price: 2499,
+    price: 2499, // Current Sale Price
     variants: [
-      { name: "15g", price: 2499, stock: 55 },
-      { name: "30g", price: 4499, stock: 25 },
-      { name: "50g", price: 6499, stock: 15 },
+      { name: "15g", price: 2499, originalPrice: 3850, stock: 55 },
+      { name: "30g", price: 4499, originalPrice: 6920, stock: 25 },
+      { name: "50g", price: 6499, originalPrice: 9999, stock: 15 },
     ],
     features: ["Male Vitality", "Boosts Stamina", "Testosterone Support"],
-suggestedUse: "300–500 mg daily in warm water. Do not exceed recommended dosage."
-
+    suggestedUse: "300–500 mg daily in warm water. Do not exceed recommended dosage.",
+    flashSaleDetails: {
+      endsIn: "08:45:22",
+      stockBar: 75 // Percentage of stock sold
+    }
   },
   // {
   //   id: 3,

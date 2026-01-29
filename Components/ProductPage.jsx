@@ -205,7 +205,7 @@ const ProductPage = ({ product, onBack, addToCart }) => {
                 <div className="flex md:gap-10 pointer-events-none">
                   <motion.img initial={{ rotate: -15, y: -5 }} whileHover={{ rotate: 0, scale: 1.1 }} src={sticker1} alt="Seal 1" className="w-16 h-16 object-contain drop-shadow-md z-30" />
                   <motion.img initial={{ rotate: 10, y: 2 }} whileHover={{ rotate: 5, scale: 1.1 }} src={sticker2} alt="Seal 2" className="w-16 h-16 object-contain drop-shadow-md z-20" />
-                  <motion.img initial={{ rotate: -5, x: -2 }} whileHover={{ rotate: -10, scale: 1.1 }} src={sticker3} alt="Seal 3" className="w-16 h-16 object-contain drop-shadow-md z-10 opacity-80" />
+               
                 </div>
 
                 <div className="pt-2 border-t border-gray-100">
