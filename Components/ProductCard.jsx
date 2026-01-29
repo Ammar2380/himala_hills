@@ -88,15 +88,7 @@ const ProductCard = ({ product, onSelect }) => {
         className="md:hidden relative flex flex-col bg-white rounded-[2.5rem] p-3 shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden"
       >
         {/* Glowing Discount Tag */}
-        <div className="absolute top-5 left-5 z-20">
-          <motion.div 
-            animate={{ opacity: [0.8, 1, 0.8] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="bg-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg"
-          >
-            {discount}% OFF
-          </motion.div>
-        </div>
+      
 
         {/* Product Image Stage */}
         <div className="relative bg-[#F8F8F8] rounded-[2rem]  overflow-hidden flex items-center justify-center group ">
@@ -116,12 +108,7 @@ const ProductCard = ({ product, onSelect }) => {
               {product.name}
             </h3>
             <div className="flex flex-col items-end">
-              <span className="text-[10px] font-bold text-red-500 flex items-center gap-1 uppercase">
-                <span className="animate-pulse">●</span> Flash Sale
-              </span>
-              <span className="text-gray-400 line-through text-xs">
-                {formatPrice(mainVariant.oldPrice)}
-              </span>
+            
             </div>
           </div>
 

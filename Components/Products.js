@@ -11,25 +11,26 @@ import Product3b from './products (3).jpg';
 import Product3c from './products (7).jpg';
 
 export const PRODUCTS = [
-  {
-    id: 1,
-    name: "Himala Hills – Shilajit Gold",
-    description: "Premium refined Himalayan Shilajit resin. Specially crafted for mature adults (40+), athletes, and high-performance individuals.",
-    longDescription: "Packed with Fulvic Acid, Humic minerals, amino acids, and antioxidants.",
-    images: [Product3a, Product3b, Product3c],
-    rating: 4.8,
-    reviewsCount: 1240,
-    currency: "PKR",
-    // Base price for calculations to prevent NaN if your code looks for product.price
-    price: 2999, 
-    variants: [
-      { name: "15g", price: 2999, stock: 45 },
-      { name: "30g", price: 5499, stock: 30 },
-      { name: "50g", price: 7999, stock: 20 },
-    ],
-    features: ["Elite Gold Grade Resin", "High Fulvic Acid", "Lab Purified"],
-    suggestedUse: "300–500 mg daily in warm water."
-  },
+  // {
+  //   id: 1,
+  //   name: "Himala Hills – Shilajit Gold",
+  //   description: "Premium refined Himalayan Shilajit resin. Specially crafted for mature adults (40+), athletes, and high-performance individuals.",
+  //   longDescription: "Packed with Fulvic Acid, Humic minerals, amino acids, and antioxidants.",
+  //   images: [Product3a, Product3b, Product3c],
+  //   rating: 4.8,
+  //   reviewsCount: 1240,
+  //   currency: "PKR",
+  //   // Base price for calculations to prevent NaN if your code looks for product.price
+  //   price: 2999, 
+  //   variants: [
+  //     { name: "15g", price: 2999, stock: 45 },
+  //     { name: "30g", price: 5499, stock: 30 },
+  //     { name: "50g", price: 7999, stock: 20 },
+  //   ],
+  //   features: ["Elite Gold Grade Resin", "High Fulvic Acid", "Lab Purified"],
+  // suggestedUse: "300–500 mg daily in warm water. Best taken in the morning on an empty stomach."
+
+  // },
   {
     id: 2,
     name: "Himala Hills – Shilajit Plus",
@@ -46,7 +47,8 @@ export const PRODUCTS = [
       { name: "50g", price: 6499, stock: 15 },
     ],
     features: ["Male Vitality", "Boosts Stamina", "Testosterone Support"],
-    suggestedUse: "300–500 mg daily."
+suggestedUse: "300–500 mg daily in warm water. Do not exceed recommended dosage."
+
   },
   // {
   //   id: 3,
