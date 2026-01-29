@@ -28,7 +28,7 @@ const Wholesale = () => {
   ];
 
   return (
-    <section ref={containerRef} className="relative bg-[#0e0e0e] lg:bg-[#FFF9EE] min-h-[120vh] lg:min-h-0 overflow-hidden">
+    <section ref={containerRef} className="relative bg-[#0e0e0e] lg:bg-[#FFF9EE] min-h-[120vh] lg:min-h-0 overflow-hidden" id="wholesale">
       
       {/* --- MOBILE & TABLET VIEW (Cinematic Breakout) --- */}
       <div className="lg:hidden relative h-full flex flex-col items-center justify-center py-20">

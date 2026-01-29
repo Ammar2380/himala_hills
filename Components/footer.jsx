@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     /* FIXED: Added a max-height container logic for ultra-wide screens */
-    <footer className="bg-[#1a3d3d] text-white overflow-hidden border-t border-white/5" id='contact'>
+    <footer className="bg-[#1a3d3d] text-white -scroll-m-150 overflow-hidden border-t border-white/5" id='contact'>
       
       {/* --- MOBILE & TABLET VIEW --- */}
       <div className="lg:hidden">

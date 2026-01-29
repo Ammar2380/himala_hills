@@ -54,8 +54,7 @@ const Benefits = () => {
       <section
         ref={containerRef}
         id="shilajit"
-        className="hidden lg:flex bg-[#FFF9EE] py-20 overflow-hidden flex-col items-center relative min-h-screen"
-      >
+        className="hidden lg:flex bg-[#FFF9EE] py-20 overflow-hidden flex-col items-center relative min-h-screen"      >
         {/* BACKGROUND DECOR */}
         <motion.div
           style={{ opacity: bgOpacity }}
