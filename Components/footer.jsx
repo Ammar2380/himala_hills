@@ -55,7 +55,7 @@ export default function Footer() {
         <div className="px-6 py-6 space-y-2">
           {[
             { id: 'explore', title: 'Explore', content: [{ label: 'Shop All Products', link: '#product' }, { label: 'Wholesale', link: '#wholesale' }, { label: 'Lab Certificates', link: '#Certificates' }] },
-            { id: 'support', title: 'Support', content: [{ label: 'Contact Us', link: '#contact' }, { label: 'Shipping Policy', link: '#' }, { label: 'Returns & FAQ', link: '#' }] }
+            // { id: 'support', title: 'Support', content: [{ label: 'Contact Us', link: '#contact' }, { label: 'Shipping Policy', link: '#' }, { label: 'Returns & FAQ', link: '#' }] }
           ].map((section) => (
             <div key={section.id} className="border-b border-white/10 pb-2">
               <button onClick={() => toggle(section.id)} className="w-full flex justify-between items-center py-3">
@@ -150,7 +150,7 @@ export default function Footer() {
             <nav className="flex flex-col gap-2 text-xs">
               <a href="#product" className="text-gray-300 hover:text-white transition-all">Shop All</a>
               <a href="#wholesale" className="text-gray-300 hover:text-white transition-all">Wholesale</a>
-              <a href="#Certificates" className="text-gray-300 hover:text-white transition-all">Lab Certificates</a>
+              <a href="#Certificate" className="text-gray-300 hover:text-white transition-all">Lab Certificates</a>
             </nav>
           </div>
 

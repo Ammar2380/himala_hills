@@ -51,7 +51,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section ref={targetRef} className="bg-[#FFFBF2] py-20 lg:py-32 overflow-hidden">
+    <section ref={targetRef} className="bg-[#FFFBF2] py-20 lg:py-32 overflow-hidden"id="Certificate">
       
       {/* --- MODAL OVERLAY --- */}
       <AnimatePresence>
