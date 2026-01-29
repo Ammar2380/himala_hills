@@ -11,30 +11,34 @@ import {
   ShieldCheck, 
   Truck, 
   Star, 
-  Box,      // Add this
-  Maximize  // Add this
+  Box,
+  Maximize
 } from 'lucide-react';
 import Rating from './Rating';
 import sticker1 from './sticker1.webp'
 import sticker2 from './sticker2.webp'
 import sticker3 from './sticker3.webp'
+import sticker4 from './ECO_FRIENDLY.webp'
+import sticker5 from './EUROFINS_LABTESTED.webp'
+import sticker6 from './THIRD_PARTY.webp'
+import sticker7 from './ISO22000.webp'
+import sticker8 from './GMP.webp'
+
 const ProductPage = ({ product, onBack, addToCart }) => {
-  // 2. This state controls which gram is active
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
   const [currentImage, setCurrentImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  // 3. This updates automatically when selectedVariant changes
   const discount = selectedVariant.oldPrice 
     ? Math.round(((selectedVariant.oldPrice - selectedVariant.price) / selectedVariant.oldPrice) * 100) 
     : 0;
-const formatPrice = (amt) =>
-  new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-  }).format(amt);
 
-
+  const formatPrice = (amt) =>
+    new Intl.NumberFormat("en-PK", {
+      style: "currency",
+      currency: "PKR",
+      minimumFractionDigits: 0,
+    }).format(amt);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -101,184 +105,146 @@ const formatPrice = (amt) =>
 
         {/* --- RIGHT: CONTENT & DOCK WRAPPER --- */}
         <div className="w-full md:w-[45%] h-[58vh] md:h-full flex flex-col bg-white">
-          
-         {/* Scrollable Area */}
-<div className="flex-1 overflow-y-auto px-6 md:px-8 pt-8 pb-4">
-  <div className="space-y-6">
-    
-    {/* Header Info */}
-    <div className="space-y-3">
-      <div className="flex items-center gap-3">
-        <Rating value={product.rating} count={product.reviewsCount} />
-        <span className="bg-red-50 text-red-600 text-[10px] font-black px-2 py-1 rounded flex items-center gap-1 uppercase tracking-widest">
-          <Zap size={10} fill="currentColor" /> Flash Sale
-        </span>
-      </div>
-      <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight">
-        {product.name}
-      </h1>
-      <div className="flex items-center gap-4">
-        <span className="text-3xl font-black text-gray-900">{formatPrice(selectedVariant.price)}</span>
-        {selectedVariant.oldPrice > 0 && (
-          <div className="flex flex-col">
-            <span className="text-base text-gray-400 line-through leading-none">{formatPrice(selectedVariant.oldPrice)}</span>
-            <span className="text-green-600 font-bold text-[10px] uppercase mt-1">Save {discount}% Today</span>
+          <div className="flex-1 overflow-y-auto px-6 md:px-8 pt-8 pb-4">
+            <div className="space-y-6">
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Rating value={product.rating} count={product.reviewsCount} />
+                  <span className="bg-red-50 text-red-600 text-[10px] font-black px-2 py-1 rounded flex items-center gap-1 uppercase tracking-widest">
+                    <Zap size={10} fill="currentColor" /> Flash Sale
+                  </span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tight">
+                  {product.name}
+                </h1>
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl font-black text-gray-900">{formatPrice(selectedVariant.price)}</span>
+                  {selectedVariant.oldPrice > 0 && (
+                    <div className="flex flex-col">
+                      <span className="text-base text-gray-400 line-through leading-none">{formatPrice(selectedVariant.oldPrice)}</span>
+                      <span className="text-green-600 font-bold text-[10px] uppercase mt-1">Save {discount}% Today</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Select Supply Weight</h3>
+                <div className="grid grid-cols-3 gap-2">
+                  {["15g", "30g", "50g"].map((gram) => (
+                    <button
+                      key={gram}
+                      onClick={() => {
+                        const variant = product.variants.find(v => v.name === gram);
+                        if (variant) setSelectedVariant(variant);
+                      }}
+                      className={`relative py-4 rounded-2xl font-bold transition-all border-2 flex flex-col items-center 
+                        ${selectedVariant.name === gram 
+                          ? 'border-gray-950 bg-gray-950 text-white shadow-lg shadow-black/20' 
+                          : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
+                    >
+                      <span className="text-sm">{gram}</span>
+                      <span className={`text-[8px] uppercase tracking-tighter opacity-60`}>
+                        {gram === "50g" ? "Best Value" : gram === "30g" ? "Most Popular" : "Starter"}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 grid grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <Box size={14} />
+                    <span className="text-[9px] font-black uppercase tracking-widest">Drop Box</span>
+                  </div>
+                  <p className="text-xs font-bold text-gray-700">Round 19cm • H 15cm</p>
+                </div>
+                <div className="space-y-1 border-l border-gray-200 pl-4">
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <Maximize size={14} />
+                    <span className="text-[9px] font-black uppercase tracking-widest">Main Box</span>
+                  </div>
+                  <p className="text-xs font-bold text-gray-700">Round 26cm • H 11cm</p>
+                </div>
+              </div>
+
+              <div className="p-4 bg-amber-50 rounded-2xl border border-amber-100">
+                <h3 className="text-amber-800 font-bold text-xs flex items-center gap-2 mb-1 uppercase tracking-wider">
+                  <Star size={12} fill="currentColor" /> Transformation Deal
+                </h3>
+                <p className="text-amber-700/80 text-xs leading-relaxed">
+                  Order in the next 2 hours to secure your <strong>{discount}% discount</strong> and priority shipping.
+                </p>
+              </div>
+ <div className="pt-4 border-t border-gray-100">
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4 text-center">Quality Assurance & Certifications</h4>
+                  <div className="grid grid-cols-5 gap-2 items-center justify-items-center opacity-80">
+                    <img src={sticker4} alt="Eco Friendly" className="w-20 h-20 object-contain" />
+                    <img src={sticker5} alt="Eurofins Tested" className="w-20 h-20 object-contain" />
+                    <img src={sticker6} alt="Third Party Tested" className="w-20 h-20 object-contain" />
+                    <img src={sticker7} alt="ISO 22000" className="w-20 h-20 object-contain" />
+                    <img src={sticker8} alt="GMP Certified" className="w-20 h-20 object-contain" />
+                  </div>
+                </div>
+              <div className="space-y-4">
+                <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-default">
+                  {product.description}
+                </p>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
+                    <Truck size={14} className="text-green-600" /> Free Shipping
+                  </div>
+                  <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
+                    <ShieldCheck size={14} className="text-green-600" /> Lab Certified
+                  </div>
+                </div>
+
+                <div className="flex md:gap-10 pointer-events-none">
+                  <motion.img initial={{ rotate: -15, y: -5 }} whileHover={{ rotate: 0, scale: 1.1 }} src={sticker1} alt="Seal 1" className="w-16 h-16 object-contain drop-shadow-md z-30" />
+                  <motion.img initial={{ rotate: 10, y: 2 }} whileHover={{ rotate: 5, scale: 1.1 }} src={sticker2} alt="Seal 2" className="w-16 h-16 object-contain drop-shadow-md z-20" />
+                  <motion.img initial={{ rotate: -5, x: -2 }} whileHover={{ rotate: -10, scale: 1.1 }} src={sticker3} alt="Seal 3" className="w-16 h-16 object-contain drop-shadow-md z-10 opacity-80" />
+                </div>
+
+                <div className="pt-2 border-t border-gray-100">
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">How to Use</h4>
+                  <div className="bg-green-50/30 p-3 rounded-xl">
+                    <p className="text-[11px] font-medium text-gray-600 leading-snug">{product.suggestedUse}</p>
+                  </div>
+                </div>
+
+                {/* --- NEW QUALITY STICKERS SECTION --- */}
+               
+              </div>
+            </div>
           </div>
-        )}
-      </div>
-    </div>
 
-    {/* --- NEW: GRAMS SELECTOR --- */}
-    <div className="space-y-3">
-      <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Select Supply Weight</h3>
-      <div className="grid grid-cols-3 gap-2">
-        {["15g", "30g", "50g"].map((gram) => (
-          <button
-            key={gram}
-            onClick={() => {
-              const variant = product.variants.find(v => v.name === gram);
-              if (variant) setSelectedVariant(variant);
-            }}
-            className={`relative py-4 rounded-2xl font-bold transition-all border-2 flex flex-col items-center 
-              ${selectedVariant.name === gram 
-                ? 'border-gray-950 bg-gray-950 text-white shadow-lg shadow-black/20' 
-                : 'border-gray-100 bg-white text-gray-500 hover:border-gray-200'}`}
-          >
-            <span className="text-sm">{gram}</span>
-            <span className={`text-[8px] uppercase tracking-tighter opacity-60`}>
-              {gram === "50g" ? "Best Value" : gram === "30g" ? "Most Popular" : "Starter"}
-            </span>
-          </button>
-        ))}
-      </div>
-    </div>
+          {/* --- FIXED BOTTOM DOCK --- */}
+          <div className="p-3 md:p-8 bg-white border-t border-gray-100 flex-shrink-0">
+            <div className="bg-gray-950 rounded-[1.5rem] md:rounded-3xl p-1.5 flex items-center justify-between shadow-xl">
+              <div className="flex items-center bg-white/10 rounded-[1.2rem] p-0.5 md:p-1 ml-0.5">
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90">
+                  <Minus size={14} className="md:size-4" />
+                </button>
+                <span className="text-white font-bold w-6 md:w-10 text-center text-xs md:text-base">{quantity}</span>
+                <button onClick={() => setQuantity(quantity + 1)} className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90">
+                  <Plus size={14} className="md:size-4" />
+                </button>
+              </div>
 
-    {/* --- NEW: PACKAGING DIMENSIONS --- */}
-    <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 grid grid-cols-2 gap-4">
-      <div className="space-y-1">
-        <div className="flex items-center gap-2 text-gray-400">
-          <Box size={14} />
-          <span className="text-[9px] font-black uppercase tracking-widest">Drop Box</span>
-        </div>
-        <p className="text-xs font-bold text-gray-700">Round 19cm • H 15cm</p>
-      </div>
-      <div className="space-y-1 border-l border-gray-200 pl-4">
-        <div className="flex items-center gap-2 text-gray-400">
-          <Maximize size={14} />
-          <span className="text-[9px] font-black uppercase tracking-widest">Main Box</span>
-        </div>
-        <p className="text-xs font-bold text-gray-700">Round 26cm • H 11cm</p>
-      </div>
-    </div>
-
-    {/* Promo Box */}
-    <div className="p-4 bg-amber-50 rounded-2xl border border-amber-100">
-      <h3 className="text-amber-800 font-bold text-xs flex items-center gap-2 mb-1 uppercase tracking-wider">
-        <Star size={12} fill="currentColor" /> Transformation Deal
-      </h3>
-      <p className="text-amber-700/80 text-xs leading-relaxed">
-        Order in the next 2 hours to secure your <strong>{discount}% discount</strong> and priority shipping.
-      </p>
-    </div>
-
-    {/* Description */}
-    <div className="space-y-4">
-  {/* Compact Description */}
-  <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-default">
-    {product.description}
-  </p>
-
-  {/* Feature Grid - Smaller Padding */}
-  <div className="grid grid-cols-2 gap-2">
-    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
-      <Truck size={14} className="text-green-600" /> Free Shipping
-    </div>
-    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-tight text-gray-700 bg-gray-50/50 px-3 py-2 rounded-lg border border-gray-100">
-      <ShieldCheck size={14} className="text-green-600" /> Lab Certified
-    </div>
-  </div>
-{/* Stickers Group - Absolute Positioned */}
-  <div className=" flex md:gap-10 pointer-events-none">
-    <motion.img 
-      initial={{ rotate: -15, y: -5 }}
-      whileHover={{ rotate: 0, scale: 1.1 }}
-      src={sticker1} 
-      alt="Seal 1" 
-      className="w-20 h-20 object-contain drop-shadow-md z-30" 
-    />
-    <motion.img 
-      initial={{ rotate: 10, y: 2 }}
-      whileHover={{ rotate: 5, scale: 1.1 }}
-      src={sticker2} 
-      alt="Seal 2" 
-      className="w-20 h-20 object-contain drop-shadow-md z-20" 
-    />
-    <motion.img 
-      initial={{ rotate: -5, x: -2 }}
-      whileHover={{ rotate: -10, scale: 1.1 }}
-      src={sticker3} 
-      alt="Seal 3" 
-      className="w-20 h-20 object-contain drop-shadow-md z-10 opacity-80" 
-    />
-  </div>
-  {/* How to Use Section - Minimalist */}
-  <div className="pt-2 border-t border-gray-100">
-    <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">How to Use</h4>
-    <div className="bg-green-50/30 p-3 rounded-xl flex gap-3 items-start">
-      
-      <p className="text-[11px] font-medium text-gray-600 leading-snug">
-        {product.suggestedUse}
-      </p>
-    </div>
-  </div>
-</div>
-
-    {/* Urgency */}
-    <div className="flex items-center gap-2 text-red-600 py-3 border-y border-gray-50">
-    
-    
-    </div>
-  </div>
-</div>
-          {/* --- FIXED BOTTOM DOCK (ALWAYS DOWN) --- */}
-         <div className="p-3 md:p-8 bg-white border-t border-gray-100 flex-shrink-0">
-  <div className="bg-gray-950 rounded-[1.5rem] md:rounded-3xl p-1.5 flex items-center justify-between shadow-xl">
-    
-    {/* Compact Quantity Selector */}
-    <div className="flex items-center bg-white/10 rounded-[1.2rem] p-0.5 md:p-1 ml-0.5">
-      <button 
-        onClick={() => setQuantity(Math.max(1, quantity - 1))} 
-        className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90"
-      >
-        <Minus size={14} className="md:size-4" />
-      </button>
-      
-      <span className="text-white font-bold w-6 md:w-10 text-center text-xs md:text-base">
-        {quantity}
-      </span>
-      
-      <button 
-        onClick={() => setQuantity(quantity + 1)} 
-        className="w-8 h-8 md:w-11 md:h-11 flex items-center justify-center text-white hover:bg-white/20 rounded-lg md:rounded-xl transition active:scale-90"
-      >
-        <Plus size={14} className="md:size-4" />
-      </button>
-    </div>
-
-    {/* Small Responsive Button */}
-    <button
-      onClick={handleAddToCart}
-      className="bg-green-500 hover:bg-green-400 text-gray-950 h-10 md:h-14 px-4 md:px-10 rounded-[1.2rem] md:rounded-3xl font-black transition-all active:scale-95 shadow-lg shadow-green-500/10 flex items-center gap-2"
-    >
-      <ShoppingCart size={14} className="md:size-[18px]" />
-      <span className="uppercase text-[10px] md:text-sm tracking-tight whitespace-nowrap">
-        Add <span className="hidden xs:inline">to Cart</span> — {formatPrice(selectedVariant.price * quantity)}
-      </span>
-    </button>
-
-  </div>
-</div>
-
+              <button
+                onClick={handleAddToCart}
+                className="bg-green-500 hover:bg-green-400 text-gray-950 h-10 md:h-14 px-4 md:px-10 rounded-[1.2rem] md:rounded-3xl font-black transition-all active:scale-95 shadow-lg shadow-green-500/10 flex items-center gap-2"
+              >
+                <ShoppingCart size={14} className="md:size-[18px]" />
+                <span className="uppercase text-[10px] md:text-sm tracking-tight whitespace-nowrap">
+                  Add <span className="hidden xs:inline">to Cart</span> — {formatPrice(selectedVariant.price * quantity)}
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </motion.div>
     </motion.div>
