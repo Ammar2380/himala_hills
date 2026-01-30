@@ -7,22 +7,10 @@ import image4 from './imggg (4).jpg'
 import image5 from './imggg (5).jpg'
 const reviews = [
   {
-    name: "Juraime",
-    date: "October 4, 2025",
-    rating: 5,
-    content: "Flourish completely changed my mom’s energy levels! She’s now more active and feels healthier.",
-  },
-  {
     name: "Big Mo",
     date: "September 24, 2024",
     rating: 5,
     content: "Good job, I can feel the effect immediately. Thanks a lot for the quick delivery!",
-  },
-  {
-    name: "Alex R.",
-    date: "July 15, 2025",
-    rating: 4,
-    content: "The quality of all their products is top-notch. Highly trustworthy and effective!",
   },
   {
     name: "Aliza W.",
@@ -31,60 +19,64 @@ const reviews = [
     content: "I’ve noticed a significant improvement in my energy and focus. Highly recommend!",
   },
   {
+    name: "Alex R.",
+    date: "July 15, 2025",
+    rating: 4,
+    content: "The quality of all their products is top-notch. Highly trustworthy and effective!",
+  },
+  {
+    name: "Juraime",
+    date: "October 4, 2025",
+    rating: 5,
+    content: "Flourish completely changed my mom’s energy levels! She’s now more active and feels healthier.",
+  },
+  {
+    name: "Sarah T.",
+    date: "October 22, 2025",
+    rating: 5,
+    content: "Consistency is key, and I'm finally seeing the results after three weeks. Amazing!",
+  },
+  {
+    name: "Omar D.",
+    date: "November 14, 2025",
+    rating: 4,
+    content: "The shipping took a day longer than expected, but the product itself is high quality.",
+  },
+  {
+    name: "Elena G.",
+    date: "November 29, 2025",
+    rating: 5,
+    content: "Perfect addition to my morning routine. I feel much more balanced throughout the day.",
+  },
+  {
     name: "Marcus K.",
-    date: "Dec 10, 2025",
+    date: "December 10, 2025",
     rating: 5,
     content: "Exceeded my expectations. The packaging was great and the results are even better.",
   },
-
+  {
+    name: "Kevin B.",
+    date: "December 18, 2025",
+    rating: 5,
+    content: "Bought this as a holiday gift for myself. Best decision ever!",
+  },
+  {
+    name: "Nadia S.",
+    date: "January 2, 2026",
+    rating: 5,
+    content: "Starting the new year with a fresh burst of energy. Highly impressed so far.",
+  },
   {
     name: "Ahmed R.",
-    date: "Jan 8, 2026",
+    date: "January 8, 2026",
     rating: 5,
     content: "Product quality is excellent! Delivery in Karachi was super fast.",
   },
   {
-    name: "Sana K.",
-    date: "Feb 15, 2026",
-    rating: 4,
-    content: "Very happy with the product. Customer service was helpful too!",
-  },
-  {
-    name: "Ali H.",
-    date: "Mar 3, 2026",
+    name: "Zainab P.",
+    date: "January 24, 2026",
     rating: 5,
-    content: "Really impressed! Works exactly as described. Highly recommended.",
-  },
-  {
-    name: "Ayesha N.",
-    date: "Mar 20, 2026",
-    rating: 5,
-    content: "My energy levels improved a lot. Love this product!",
-  },
-  {
-    name: "Bilal M.",
-    date: "Apr 5, 2026",
-    rating: 4,
-    content: "Good product overall. Packaging could be better.",
-  },
-  {
-    name: "Zoya F.",
-    date: "Apr 18, 2026",
-    rating: 5,
-    content: "Amazing results! I feel more active and focused than before.",
-  },
-
-  {
-    name: "Emma L.",
-    date: "Feb 10, 2026",
-    rating: 5,
-    content: "Received my package in the US quickly. Product is amazing!",
-  },
-  {
-    name: "Liam J.",
-    date: "Mar 12, 2026",
-    rating: 4,
-    content: "Very effective and well-packaged. Happy with the purchase!",
+    content: "Just started using it last week and I can already feel a difference in my focus levels.",
   }
 ];
 
