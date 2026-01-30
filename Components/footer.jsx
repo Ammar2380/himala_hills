@@ -135,13 +135,25 @@ export default function Footer() {
             <p className="text-gray-400 text-xs leading-relaxed max-w-xs">
               Sourcing the highest quality Shilajit resin directly from the heart of the Himalayas. We bridge ancient wisdom with modern wellness.
             </p>
-            <div className="flex gap-3">
-              {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] hover:text-[#1a3d3d] transition-all duration-300">
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
+        <div className="flex gap-3">
+  {[
+    { Icon: Facebook, link: "https://www.facebook.com/HimalaHills" },
+    { Icon: Instagram, link: "https://www.instagram.com/HimalaHills/" },
+    { Icon: Youtube, link: "https://www.youtube.com/@HimalaHillsShilajit" },
+    { Icon: Linkedin, link: "https://www.linkedin.com/company/himalahills/" },
+  ].map(({ Icon, link }, i) => (
+    <a
+      key={i}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 bg-white/5 rounded-full hover:bg-[#c5a059] hover:text-[#1a3d3d] transition-all duration-300"
+    >
+      <Icon size={16} />
+    </a>
+  ))}
+</div>
+
           </div>
 
           {/* Links */}
