@@ -1,16 +1,19 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import './Components/fonts.css';
 
 
 @import "tailwindcss";
 
-body {
-  font-family: 'Inter', sans-serif;
+h1{
+    font-family: 'Quicksilver', sans-serif;
 }
-
-footer {
-  font-family: 'Cinzel', serif;
+h2{
+    font-family: 'Quicksilver', sans-serif;
 }
+/* h3{
+    font-family: 'Quicksilver', sans-serif;
+} */
 
 /* 
 *{

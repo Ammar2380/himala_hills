@@ -40,14 +40,14 @@ const Hero = () => {
         {/* Left Content */}
         <div className="max-w-xl z-10 text-center md:text-left">
           <motion.div variants={fadeInUp}>
-            <span className="inline-block px-3 py-1 mb-4 text-[10px] tracking-[0.2em] font-bold uppercase bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+            <span className="inline-block px-3 py-1 mb-4 italic text-[10px] tracking-wide  font-medium uppercase bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
               Hand-Harvested at 18,000 ft
             </span>
           </motion.div>
 
           <motion.h1 
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-black leading-tight md:leading-tight text-balance md:w-200"
+            className="text-4xl md:text-5xl font-black italic tracking-widest leading-tight md:leading-tight text-balance md:w-200"
           >
             Himala Hills <br /> 
             <span className="text-[#FFC936]">Premium Himalayan</span> <br /> 
@@ -56,7 +56,7 @@ const Hero = () => {
 
           <motion.p 
             variants={fadeInUp}
-            className="mt-3 text-2xl md:text-3xl opacity-90 tracking-tighter font-sans"
+            className="mt-3 text-2xl md:text-3xl opacity-90   font-sans"
           >
             Health is Life <span className="italic ml-1">Live It Naturally</span>
           </motion.p>

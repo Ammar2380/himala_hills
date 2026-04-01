@@ -105,7 +105,7 @@ const Wholesale = () => {
         </div>
 
         <div className="leading-tight">
-          <h2 className="text-6xl font-bold leading-tighter mb-4 text-[#1a3d3d]">
+          <h2 className="text-6xl font-medium leading-wide italic mb-4 text-[#1a3d3d]">
             Wholesale & Private Label Services
           </h2>
           <p className="leading-tight text-[#1a3d3d] mb-6">

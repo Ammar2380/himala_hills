@@ -81,12 +81,12 @@ const Minerals = () => {
       </div>
 
       {/* --- DESKTOP VIEW (UNTOUCHED LOGIC) --- */}
-      <div className="hidden lg:block max-w-5xl mx-auto py-19 px-6 text-center flex flex-col items-center space-y-1">
-        <h2 className="text-7xl font-bold leading-tighter uppercase">
+      <div className="hidden lg:block max-w-5xl md:justify-center mx-auto py-19 px-6 text-center flex flex-col items-center space-y-1">
+        <h2 className="text-7xl font-bold leading-tighter tracking-wide italic uppercase">
           Mineral Composition <br /> of Shilajit
         </h2>
 
-        <p className="opacity-90 max-w-3xl font-medium leading-tight">
+       <p className="opacity-90 max-w-3xl font-medium leading-tight mx-auto text-center">
           Himala Hills Shilajit contains over 84+ essential minerals,
           including: Magnesium • Zinc • Iron • Potassium • Calcium •
           Manganese • Copper • Selenium and the key component Fulvic Acid,

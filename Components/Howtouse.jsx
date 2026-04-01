@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import bg from './bgimg.png';
-import d2 from './d 2.png';
+import d2 from './logo.png';
 import img from './Asset 1 1.png';
 
 const HowToUse = () => {
@@ -68,7 +68,7 @@ const HowToUse = () => {
   <div className="absolute -top-20 -left-20 w-80 h-80 bg-[#c5a059]/15 blur-[120px] pointer-events-none" />
   <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#c5a059]/10 blur-[150px] pointer-events-none" />
 
-  <h2 className="relative z-10 text-6xl tracking-tighter font-bold mb-10">How to Use</h2>
+  <h1 className="relative z-10 text-6xl tracking-wide italic font-bold mb-10">How to Use</h1>
   
   {/* The 2x2 Grid with Backdrop Blur */}
   <div className="relative z-10 grid grid-cols-2 gap-x-12 gap-y-10 max-w-2xl">

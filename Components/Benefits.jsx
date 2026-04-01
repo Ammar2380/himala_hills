@@ -74,9 +74,9 @@ const Benefits = () => {
             <span className="text-sm font-bold text-[#c5a059] uppercase tracking-[0.4em] block mb-4">
               Gold Grade Resin
             </span>
-            <h2 className="text-8xl font-black text-[#1a3d3d] tracking-tighter leading-[0.8]">
+            <h1 className="text-8xl font-black text-[#1a3d3d] tracking-wide italic leading-[0.8]">
               HOLISTIC <br /> <span className="text-[#c5a059]">TRANSFORMATION</span>
-            </h2>
+            </h1>
           </motion.div>
         </div>
 

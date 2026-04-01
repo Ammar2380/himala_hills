@@ -39,7 +39,7 @@ const WhyChoose = () => {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-black tracking-tighter leading-none">
+          <h2 className="text-4xl font-black tracking-wide leading-none">
             Why Choose <br /> 
             <span className="text-[#c5a059]">Himala Hills?</span>
           </h2>
@@ -84,7 +84,7 @@ const WhyChoose = () => {
 
   {/* Header: More compact spacing */}
   <div className="relative mb-10">
-    <h2 className="text-5xl font-black tracking-tighter leading-[1.1] mb-3">
+    <h2 className="text-5xl font-black tracking-wide italic leading-[1.1] mb-3">
       Why Choose <br /> 
       <span className="text-[#c5a059]">Himala Hills?</span>
     </h2>

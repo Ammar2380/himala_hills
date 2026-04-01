@@ -8,9 +8,9 @@ const ShilajitDifference = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="text-left mb-5">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#1a3d3d] tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-6xl font-medium text-[#1a3d3d] tracking-wide  leading-tight">
             Not All Shilajit Is Equal.<br />
-          </h2>
+          </h1>
             <p className="text-4xl font-medium  text-[#997920] ">Here’s the Difference.</p>
         </div>
 

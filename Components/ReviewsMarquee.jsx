@@ -134,9 +134,9 @@ const ReviewsMarquee = () => {
           viewport={{ once: true }}
           className="lg:text-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-[#1a3d3d] leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl italic lg:text-7xl font-black text-[#1a3d3d] leading-tight mb-4">
             Trusted by <br className="lg:hidden" /> Thousands
-          </h2>
+          </h1>
           <div className="flex items-center lg:justify-center gap-3">
             <div className="flex -space-x-2">
   {[image1, image2, image3, image4, image5].map((img, i) => (

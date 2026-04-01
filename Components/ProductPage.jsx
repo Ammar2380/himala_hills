@@ -64,7 +64,7 @@ const ProductPage = ({ product, onBack, addToCart }) => {
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 30, stiffness: 250 }}
-        className="w-full h-[98vh] md:h-[90vh] md:max-w-6xl bg-white rounded-t-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+        className="w-full h-[98vh] md:h-[90vh] md:max-w-6xl bg-white  overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
       >
         
         {/* --- LEFT: IMAGE SECTION --- */}

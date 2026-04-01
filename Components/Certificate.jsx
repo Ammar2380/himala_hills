@@ -68,7 +68,7 @@ const Certifications = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col items-center text-center mb-12 lg:mb-16">
           <h4 className="uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs font-black text-[#c5a059] mb-3">Our Certifications</h4>
-          <h2 className="text-4xl lg:text-6xl font-black text-[#1a3d3d] tracking-tighter leading-tight italic mb-4">Proof of Trust & Excellence</h2>
+          <h2 className="text-4xl lg:text-5xl font-black text-[#1a3d3d] tracking-wide leading-tight italic mb-4">Proof of Trust & Excellence</h2>
           <div className="h-1 w-16 bg-[#c5a059] mt-6" />
         </div>
 

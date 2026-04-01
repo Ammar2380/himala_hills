@@ -116,14 +116,14 @@ const ShilajitResin = () => {
           {/* LEFT COLUMN */}
           <div className="space-y-6">
             <div className="inline-block px-3 py-1 rounded-full bg-[#997920]/10 border border-[#997920]/20">
-              <h2 className="text-sm lg:text-lg font-bold text-[#997920] tracking-widest uppercase">
+              <h2 className="text-sm lg:text-lg font-medium text-[#997920] tracking-widest uppercase">
                 100% Pure Shilajit Resin
               </h2>
             </div>
-            <h3 className="text-5xl lg:text-6xl font-black text-[#1a3d3d] leading-none relative">
+            <h2 className="text-5xl italic tracking-wide lg:text-5xl font-black text-[#1a3d3d] leading-none relative">
               <span className="relative z-10">What is it?</span>
               <span className="absolute bottom-1 left-0 w-full h-4 bg-[#c5a059]/20 -z-0"></span>
-            </h3>
+            </h2>
             <div className="p-1 border-l-4 border-[#c5a059] pl-6">
               <p className="text-gray-700 leading-relaxed text-lg italic">
                 Shilajit is a natural resin-like superfood that exudes from the
