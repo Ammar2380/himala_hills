@@ -30,7 +30,7 @@ const Minerals = () => {
           <motion.h2 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="text-4xl font-black leading-none uppercase mb-4"
+            className="text-4xl font-black leading-none tracking-wide uppercase mb-4"
           >
             Mineral <br /> <span className="text-[#c5a059]">Composition</span>
           </motion.h2>

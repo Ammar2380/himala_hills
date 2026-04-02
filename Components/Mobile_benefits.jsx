@@ -52,7 +52,7 @@ const MobileBenefits = () => {
         >
           Bio-Active Potency
         </motion.span>
-        <h2 className="text-5xl font-black text-[#1a3d3d] tracking-tighter leading-[0.85]">
+        <h2 className="text-5xl font-black text-[#1a3d3d] tracking-wide leading-[0.85]">
           NATURE'S <br/> <span className="text-[#c5a059]">ALCHEMY</span>
         </h2>
       </div>

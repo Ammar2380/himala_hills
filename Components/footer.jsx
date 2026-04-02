@@ -30,7 +30,7 @@ export default function Footer() {
             src={img} 
             className="h-60 mx-auto mb-4 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]"
           />
-          <h2 className="text-3xl font-cinzel uppercase leading-tight">Himala <br/> <span className="text-[#c5a059]">Hills</span></h2>
+          <h2 className="text-3xl font-cinzel uppercase leading-tight italic">Himala <br/> <span className="text-[#c5a059]">Hills</span></h2>
           <p className="text-[#c5a059] text-[10px] font-cinzel uppercase tracking-[0.3em] mt-2 italic opacity-80">The Essence of Purity</p>
         </div>
 
