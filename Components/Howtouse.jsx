@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import bg from './bgimg.png';
-import d2 from './logo.png';
+import logo from './logo.png';
 import img from './Asset 1 1.png';
 
 const HowToUse = () => {
@@ -55,7 +55,7 @@ const HowToUse = () => {
           whileInView={{ scale: 1, opacity: 1 }}
           className="mt-12 flex justify-center"
         >
-          <img src={d2} alt="" className="h-12 drop-shadow-2xl" />
+          <img src={logo} alt="" className="h-12 drop-shadow-2xl" />
         </motion.div>
         
         {/* Floating background element for mobile style */}
@@ -95,7 +95,7 @@ const HowToUse = () => {
   </div>
 
   {/* Branding Logo */}
-  <img src={d2} alt="" className="relative z-10 h-16 mt-12 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]" />
+  <img src={logo} alt="" className="relative z-10 h-16 mt-12 drop-shadow-[0_0_20px_rgba(197,160,89,0.3)]" />
 </div>
 
       {/* Desktop Image Section (Hidden on Mobile as per original) */}
