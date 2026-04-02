@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import bg from './bgimg.png';
-import logo from './logo.png';
+import logo from './imageone.png';
 import img from './Asset 1 1.png';
 
 const HowToUse = () => {
