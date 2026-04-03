@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { PRODUCTS } from "./Products";
-import ProductCard from "./ProductCard";
 import ProductPage from "./ProductPage";
 import CartDrawer from "./CartDrawer";
 import CheckoutModal from "./CheckoutModal";
-import Navbar from "./Navbar"; 
+import Navbar from "./Navbar";
 
 const Storefront = () => {
-  const [activeProduct, setActiveProduct] = useState(null);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+
+  // The single product
+  const product = PRODUCTS[0];
 
   // Lock scroll when cart is open
   useEffect(() => {
@@ -42,42 +42,24 @@ const Storefront = () => {
 
   return (
     <div className="min-h-screen bg-[#faf8f4] selection:bg-yellow-200">
-     
+
       <Navbar cart={cart} onCartOpen={() => setIsCartOpen(true)} showMarquee={false} />
 
-
-      <main className="max-w-7xl mx-auto px-6 py-12 pt-24 md:pt-32" id="product">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onSelect={setActiveProduct}
-            />
-          ))}
-        </div>
+      <main className="pt-20 md:pt-24" id="product">
+        <ProductPage
+          product={product}
+          addToCart={(product, variant, quantity) =>
+            addToCart({
+              cartId: `${product.id}-${variant.name}`,
+              id: product.id,
+              name: product.name,
+              img: product.images[0],
+              variant,
+              qty: quantity,
+            })
+          }
+        />
       </main>
-
-      <AnimatePresence>
-        {activeProduct && (
-          <ProductPage
-           product={activeProduct}
-  isCartOpen={isCartOpen}
-  onBack={() => setActiveProduct(null)}
-  addToCart={(product, variant, quantity) =>
-    addToCart({
-      // Change .size to .name to match your Product data
-      cartId: `${product.id}-${variant.name}`, 
-      id: product.id,
-      name: product.name,
-      img: product.images[0],
-      variant, // This now carries the correct name: "15g", "30g", etc.
-      qty: quantity,
-              })
-            }
-          />
-        )}
-      </AnimatePresence>
 
       <CartDrawer
         isOpen={isCartOpen}
@@ -93,17 +75,17 @@ const Storefront = () => {
         }}
       />
 
-    {checkoutOpen && (
-  <CheckoutModal
-    cart={cart}
-    total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
-    onClose={() => setCheckoutOpen(false)}
-    onSuccess={() => {
-      setCart([]);           // Clear the cart
-      setCheckoutOpen(false); // Close the modal
-    }}
-  />
-)}
+      {checkoutOpen && (
+        <CheckoutModal
+          cart={cart}
+          total={cart.reduce((sum, i) => sum + i.variant.price * i.qty, 0)}
+          onClose={() => setCheckoutOpen(false)}
+          onSuccess={() => {
+            setCart([]);
+            setCheckoutOpen(false);
+          }}
+        />
+      )}
 
     </div>
   );

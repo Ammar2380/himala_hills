@@ -5,10 +5,7 @@ import { formatPrice } from "./formatPrice";
 const CartDrawer = ({ isOpen, cart, onClose, removeFromCart, updateQuantity, onCheckout }) => {
   const subtotal = cart.reduce((sum, item) => sum + (item.variant.price * item.qty), 0);
   
-  /* --- FREE SHIPPING LOGIC COMMENTED OUT FOR NOW ---
-  const freeShippingThreshold = 5000; // Example PKR threshold
-  const shippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100);
-  -------------------------------------------------- */
+ 
 
   return (
     <AnimatePresence>
